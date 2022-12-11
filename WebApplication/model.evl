@@ -1,0 +1,57 @@
+// ----------------NamedElement--------------------
+context NamedElement {
+	constraint NameNotEmpty {
+		check: self.name.isDefined()
+		message: "Please write a name, the name attribute cannot be empty for: " + self
+	}
+}
+
+// ----------------Entity--------------------
+context Entity {
+	constraint OnlyOnePK {
+		check: self.features.select(a|a.type().name == "Attribute")
+							.select(b|b.isPrimaryKey).size() <= 1
+		message: "Only one attribute can be primary key."
+	}
+	
+	constraint AtLeastOnePK {
+		check: self.features.select(a|a.type().name == "Attribute")
+							.select(b|b.isPrimaryKey).size() > 0
+		message: "For each entity you need a primary key."
+	}
+	
+	constraint NoDuplicates {
+		check : self.eContainer.entities.select(it|it.name == self.name).size() == 1
+		message : "No Duplicates allowed: "+self
+	}
+}
+
+// ---------------DContent---------------------
+context DContent {
+	constraint OnlyFeaturesFromRef {
+		check: self.features.forAll(f|self.entity.features.contains(f))
+		message: "Inside " + self + " you're using an attribute that is not inside your referenced entity."
+	}
+}
+
+// ------------------Individual------------------
+context Individual {
+	constraint SameEntityAsParent {
+		check: self.eContainer.entity == self.entity
+		message: "The referenced entity: " + self.entity + " doesn't match the parent reference: " + self.eContainer.entity
+		fix {
+			title: "Change to "+ self.eContainer.entity
+			do {
+				self.entity = self.eContainer.entity;
+			}
+		}
+	}
+}
+
+// ------------------Element------------------
+context Element {
+	constraint NoDuplicates {
+		check : self.eContainer.elements.select(it|it.name == self.name).size() == 1
+		message : "No Duplicates allowed: "+self
+	}
+}

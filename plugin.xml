@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated model -->
+      <package
+            uri="https://it.mde.glotlanguage"
+            class="Glot.GlotPackage"
+            genModel="WebApplication/model.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated model -->
+      <package
+            uri="https://it.mde.glotlanguage/contenConcern"
+            class="Glot.ContentConcern.ContentConcernPackage"
+            genModel="WebApplication/model.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated model -->
+      <package
+            uri="https://it.mde.glotlanguage/dataConcern"
+            class="Glot.DataConcern.DataConcernPackage"
+            genModel="WebApplication/model.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated model -->
+      <package
+            uri="https://it.mde.glotlanguage/formConcern"
+            class="Glot.FormConcern.FormConcernPackage"
+            genModel="WebApplication/model.genmodel"/>
+   </extension>
+</plugin>

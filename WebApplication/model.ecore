@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Glot" nsURI="https://it.mde.glotlanguage" nsPrefix="web">
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="subversion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entities" upperBound="-1"
+        eType="#//DataConcern/Entity" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="forms" upperBound="-1"
+        eType="#//FormConcern/Form" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pages" upperBound="-1"
+        eType="#//ContentConcern/Page" containment="true"/>
+  </eClassifiers>
+  <eSubpackages name="ContentConcern" nsURI="https://it.mde.glotlanguage/contenConcern"
+      nsPrefix="cc">
+    <eClassifiers xsi:type="ecore:EClass" name="Content" abstract="true" eSuperTypes="#//NamedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DContent" abstract="true" eSuperTypes="#//ContentConcern/Content">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="entity" lowerBound="1"
+          eType="#//DataConcern/Entity"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="features" lowerBound="1"
+          upperBound="-1" eType="#//DataConcern/Feature"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DForm" eSuperTypes="#//ContentConcern/Content">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="form" lowerBound="1"
+          eType="#//FormConcern/Form"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Individual" eSuperTypes="#//ContentConcern/DContent"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Index" eSuperTypes="#//ContentConcern/DContent">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="individualsList" lowerBound="1"
+          upperBound="-1" eType="#//ContentConcern/Individual" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Page" eSuperTypes="#//NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
+          eType="#//ContentConcern/Content" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
+          eType="#//ContentConcern/Page"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="DataConcern" nsURI="https://it.mde.glotlanguage/dataConcern"
+      nsPrefix="dc">
+    <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//DataConcern/Feature">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isPrimaryKey" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//DataConcern/_DataType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Entity" eSuperTypes="#//NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="features" lowerBound="1"
+          upperBound="-1" eType="#//DataConcern/Feature" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Feature" abstract="true" eSuperTypes="#//NamedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Reference" eSuperTypes="#//DataConcern/Feature">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="foreignKey" eType="#//DataConcern/Entity"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="_DataType">
+      <eLiterals name="String"/>
+      <eLiterals name="int"/>
+      <eLiterals name="text"/>
+      <eLiterals name="boolean"/>
+      <eLiterals name="Date"/>
+      <eLiterals name="File"/>
+      <eLiterals name="currency"/>
+      <eLiterals name="percent"/>
+      <eLiterals name="image"/>
+      <eLiterals name="images"/>
+      <eLiterals name="double"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="FormConcern" nsURI="https://it.mde.glotlanguage/formConcern"
+      nsPrefix="fc">
+    <eClassifiers xsi:type="ecore:EClass" name="Element" eSuperTypes="#//NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="tooltip" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" eType="#//DataConcern/Attribute"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Form" eSuperTypes="#//NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="method" eType="#//FormConcern/_MethodType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+          eType="#//FormConcern/Element" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="entity" eType="#//DataConcern/Entity"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="elementsNumber" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"
+          volatile="true" transient="true" derived="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="_MethodType">
+      <eLiterals name="POST"/>
+      <eLiterals name="GET"/>
+      <eLiterals name="DELETE"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

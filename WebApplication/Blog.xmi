@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cc="https://it.mde.glotlanguage/contenConcern" xmlns:dc="https://it.mde.glotlanguage/dataConcern" xmlns:web="https://it.mde.glotlanguage" xsi:schemaLocation="https://it.mde.glotlanguage/contenConcern https://it.mde.glotlanguage/formConcern#//ContentConcern https://it.mde.glotlanguage/dataConcern https://it.mde.glotlanguage/formConcern#//DataConcern https://it.mde.glotlanguage https://it.mde.glotlanguage/formConcern" name="Blog">
+  <entities name="User">
+    <features xsi:type="dc:Attribute" name="id" isPrimaryKey="true"/>
+    <features xsi:type="dc:Attribute" name="name"/>
+    <features xsi:type="dc:Attribute" name="email"/>
+    <features xsi:type="dc:Attribute" name="username"/>
+    <features xsi:type="dc:Attribute" name="password"/>
+  </entities>
+  <entities name="Post">
+    <features xsi:type="dc:Attribute" name="id" isPrimaryKey="true"/>
+    <features xsi:type="dc:Attribute" name="title"/>
+    <features xsi:type="dc:Attribute" name="content"/>
+    <features xsi:type="dc:Attribute" name="summary"/>
+    <features xsi:type="dc:Reference" name="tag" foreignKey="//@entities.2"/>
+    <features xsi:type="dc:Reference" name="category" foreignKey="//@entities.3"/>
+  </entities>
+  <entities name="Tag">
+    <features xsi:type="dc:Attribute" name="id" isPrimaryKey="true"/>
+    <features xsi:type="dc:Attribute" name="tag_name"/>
+  </entities>
+  <entities name="Category">
+    <features xsi:type="dc:Attribute" name="id" isPrimaryKey="true"/>
+    <features xsi:type="dc:Attribute" name="cat_name"/>
+  </entities>
+  <entities name="Comment">
+    <features xsi:type="dc:Attribute" name="id" isPrimaryKey="true"/>
+    <features xsi:type="dc:Attribute" name="comment_content"/>
+    <features xsi:type="dc:Reference" name="post" foreignKey="//@entities.1"/>
+  </entities>
+  <forms name="Login">
+    <elements name="Username" label="Username" tooltip="Insert username" attribute="//@entities.0/@features.3"/>
+    <elements name="Password" label="Password" tooltip="Insert password" attribute="//@entities.0/@features.4"/>
+  </forms>
+  <pages name="Posts">
+    <contents xsi:type="cc:Index" name="Posts" entity="//@entities.1" features="//@entities.1/@features.1 //@entities.1/@features.3 //@entities.1/@features.0">
+      <individualsList name="Post" entity="//@entities.1" features="//@entities.1/@features.1 //@entities.1/@features.2 //@entities.1/@features.4"/>
+    </contents>
+  </pages>
+</web:System>
