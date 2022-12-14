@@ -247,7 +247,7 @@ public class ContentConcernPackageImpl extends EPackageImpl implements ContentCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPage_Contents() {
+	public EReference getPage_Indexes() {
 		return (EReference)pageEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -256,8 +256,17 @@ public class ContentConcernPackageImpl extends EPackageImpl implements ContentCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPage_Links() {
+	public EReference getPage_Forms() {
 		return (EReference)pageEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPage_Links() {
+		return (EReference)pageEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -303,7 +312,8 @@ public class ContentConcernPackageImpl extends EPackageImpl implements ContentCo
 		createEReference(indexEClass, INDEX__INDIVIDUALS_LIST);
 
 		pageEClass = createEClass(PAGE);
-		createEReference(pageEClass, PAGE__CONTENTS);
+		createEReference(pageEClass, PAGE__INDEXES);
+		createEReference(pageEClass, PAGE__FORMS);
 		createEReference(pageEClass, PAGE__LINKS);
 	}
 
@@ -363,7 +373,8 @@ public class ContentConcernPackageImpl extends EPackageImpl implements ContentCo
 		initEReference(getIndex_IndividualsList(), this.getIndividual(), null, "individualsList", null, 1, -1, Index.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(pageEClass, Page.class, "Page", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPage_Contents(), this.getContent(), null, "contents", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPage_Indexes(), this.getIndex(), null, "indexes", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPage_Forms(), this.getDForm(), null, "forms", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPage_Links(), this.getPage(), null, "links", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 	}
 

@@ -7,12 +7,15 @@ import Glot.DataConcern.Entity;
 import Glot.FormConcern.Element;
 import Glot.FormConcern.Form;
 import Glot.FormConcern.FormConcernPackage;
+import Glot.FormConcern.FormConcernTables;
 import Glot.FormConcern._MethodType;
 
 import Glot.impl.NamedElementImpl;
 
+import java.math.BigInteger;
 import java.util.Collection;
 
+import java.util.List;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -25,6 +28,13 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.pivot.evaluation.Executor;
+import org.eclipse.ocl.pivot.ids.IdResolver;
+import org.eclipse.ocl.pivot.library.collection.CollectionSizeOperation;
+import org.eclipse.ocl.pivot.utilities.PivotUtil;
+import org.eclipse.ocl.pivot.utilities.ValueUtil;
+import org.eclipse.ocl.pivot.values.IntegerValue;
+import org.eclipse.ocl.pivot.values.OrderedSetValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -91,7 +101,7 @@ public class FormImpl extends NamedElementImpl implements Form {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Integer ELEMENTS_NUMBER_EDEFAULT = null;
+	protected static final BigInteger ELEMENTS_NUMBER_EDEFAULT = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -188,10 +198,17 @@ public class FormImpl extends NamedElementImpl implements Form {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Integer getElementsNumber() {
-		// TODO: implement this method to return the 'Elements Number' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public BigInteger getElementsNumber() {
+		/**
+		 * self.elements->size()
+		 */
+		final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this);
+		final /*@NonInvalid*/ IdResolver idResolver = executor.getIdResolver();
+		final /*@NonInvalid*/ List<Element> elements = this.getElements();
+		final /*@NonInvalid*/ OrderedSetValue BOXED_elements = idResolver.createOrderedSetOfAll(FormConcernTables.ORD_CLSSid_Element, elements);
+		final /*@NonInvalid*/ IntegerValue size = CollectionSizeOperation.INSTANCE.evaluate(BOXED_elements);
+		final BigInteger ECORE_size = ValueUtil.bigIntegerValueOf(size);
+		return ECORE_size;
 	}
 
 	/**
@@ -199,7 +216,7 @@ public class FormImpl extends NamedElementImpl implements Form {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setElementsNumber(Integer newElementsNumber) {
+	public void setElementsNumber(BigInteger newElementsNumber) {
 		// TODO: implement this method to set the 'Elements Number' attribute
 		// Ensure that you remove @generated or mark it @generated NOT
 		throw new UnsupportedOperationException();
@@ -260,7 +277,7 @@ public class FormImpl extends NamedElementImpl implements Form {
 				setEntity((Entity)newValue);
 				return;
 			case FormConcernPackage.FORM__ELEMENTS_NUMBER:
-				setElementsNumber((Integer)newValue);
+				setElementsNumber((BigInteger)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

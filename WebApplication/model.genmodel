@@ -33,7 +33,8 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//ContentConcern/Index/individualsList"/>
       </genClasses>
       <genClasses ecoreClass="model.ecore#//ContentConcern/Page">
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//ContentConcern/Page/contents"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//ContentConcern/Page/indexes"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model.ecore#//ContentConcern/Page/forms"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference model.ecore#//ContentConcern/Page/links"/>
       </genClasses>

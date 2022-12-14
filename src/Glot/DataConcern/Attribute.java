@@ -28,7 +28,7 @@ public interface Attribute extends Feature {
 	 * @return the value of the '<em>Is Primary Key</em>' attribute.
 	 * @see #setIsPrimaryKey(boolean)
 	 * @see Glot.DataConcern.DataConcernPackage#getAttribute_IsPrimaryKey()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	boolean isIsPrimaryKey();

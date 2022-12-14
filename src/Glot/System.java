@@ -38,7 +38,7 @@ public interface System extends NamedElement {
 	 * @return the value of the '<em>Version</em>' attribute.
 	 * @see #setVersion(int)
 	 * @see Glot.GlotPackage#getSystem_Version()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	int getVersion();
@@ -60,7 +60,7 @@ public interface System extends NamedElement {
 	 * @return the value of the '<em>Subversion</em>' attribute.
 	 * @see #setSubversion(int)
 	 * @see Glot.GlotPackage#getSystem_Subversion()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	int getSubversion();

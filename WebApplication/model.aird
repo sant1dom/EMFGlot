@@ -3,7 +3,6 @@
   <viewpoint:DAnalysis uid="_tnyxMGpLEe2kXrvyhXFehw" version="15.0.0.202209061200">
     <semanticResources>model.ecore</semanticResources>
     <semanticResources>Blog.xmi</semanticResources>
-    <semanticResources>model.emf</semanticResources>
     <semanticResources>model.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_uW5S4GpLEe2kXrvyhXFehw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>

@@ -334,13 +334,22 @@ public interface ContentConcernPackage extends EPackage {
 	int PAGE__NAME = GlotPackage.NAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Contents</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Indexes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE__CONTENTS = GlotPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int PAGE__INDEXES = GlotPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Forms</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE__FORMS = GlotPackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Links</b></em>' reference list.
@@ -349,7 +358,7 @@ public interface ContentConcernPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE__LINKS = GlotPackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int PAGE__LINKS = GlotPackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Page</em>' class.
@@ -358,7 +367,7 @@ public interface ContentConcernPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PAGE_FEATURE_COUNT = GlotPackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int PAGE_FEATURE_COUNT = GlotPackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Page</em>' class.
@@ -475,15 +484,26 @@ public interface ContentConcernPackage extends EPackage {
 	EClass getPage();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link Glot.ContentConcern.Page#getContents <em>Contents</em>}'.
+	 * Returns the meta object for the containment reference list '{@link Glot.ContentConcern.Page#getIndexes <em>Indexes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Contents</em>'.
-	 * @see Glot.ContentConcern.Page#getContents()
+	 * @return the meta object for the containment reference list '<em>Indexes</em>'.
+	 * @see Glot.ContentConcern.Page#getIndexes()
 	 * @see #getPage()
 	 * @generated
 	 */
-	EReference getPage_Contents();
+	EReference getPage_Indexes();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link Glot.ContentConcern.Page#getForms <em>Forms</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Forms</em>'.
+	 * @see Glot.ContentConcern.Page#getForms()
+	 * @see #getPage()
+	 * @generated
+	 */
+	EReference getPage_Forms();
 
 	/**
 	 * Returns the meta object for the reference list '{@link Glot.ContentConcern.Page#getLinks <em>Links</em>}'.
@@ -612,12 +632,20 @@ public interface ContentConcernPackage extends EPackage {
 		EClass PAGE = eINSTANCE.getPage();
 
 		/**
-		 * The meta object literal for the '<em><b>Contents</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Indexes</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PAGE__CONTENTS = eINSTANCE.getPage_Contents();
+		EReference PAGE__INDEXES = eINSTANCE.getPage_Indexes();
+
+		/**
+		 * The meta object literal for the '<em><b>Forms</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PAGE__FORMS = eINSTANCE.getPage_Forms();
 
 		/**
 		 * The meta object literal for the '<em><b>Links</b></em>' reference list feature.

@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link Glot.DataConcern.Entity#getFeatures <em>Features</em>}</li>
+ *   <li>{@link Glot.DataConcern.Entity#getTest <em>Test</em>}</li>
  * </ul>
  *
  * @see Glot.DataConcern.DataConcernPackage#getEntity()
@@ -34,5 +35,27 @@ public interface Entity extends NamedElement {
 	 * @generated
 	 */
 	EList<Feature> getFeatures();
+
+	/**
+	 * Returns the value of the '<em><b>Test</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Test</em>' attribute.
+	 * @see #setTest(int)
+	 * @see Glot.DataConcern.DataConcernPackage#getEntity_Test()
+	 * @model required="true" volatile="true" derived="true"
+	 * @generated
+	 */
+	int getTest();
+
+	/**
+	 * Sets the value of the '{@link Glot.DataConcern.Entity#getTest <em>Test</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Test</em>' attribute.
+	 * @see #getTest()
+	 * @generated
+	 */
+	void setTest(int value);
 
 } // Entity

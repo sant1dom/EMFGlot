@@ -2,8 +2,9 @@
  */
 package Glot.ContentConcern.impl;
 
-import Glot.ContentConcern.Content;
 import Glot.ContentConcern.ContentConcernPackage;
+import Glot.ContentConcern.DForm;
+import Glot.ContentConcern.Index;
 import Glot.ContentConcern.Page;
 
 import Glot.impl.NamedElementImpl;
@@ -29,7 +30,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link Glot.ContentConcern.impl.PageImpl#getContents <em>Contents</em>}</li>
+ *   <li>{@link Glot.ContentConcern.impl.PageImpl#getIndexes <em>Indexes</em>}</li>
+ *   <li>{@link Glot.ContentConcern.impl.PageImpl#getForms <em>Forms</em>}</li>
  *   <li>{@link Glot.ContentConcern.impl.PageImpl#getLinks <em>Links</em>}</li>
  * </ul>
  *
@@ -37,14 +39,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class PageImpl extends NamedElementImpl implements Page {
 	/**
-	 * The cached value of the '{@link #getContents() <em>Contents</em>}' containment reference list.
+	 * The cached value of the '{@link #getIndexes() <em>Indexes</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getContents()
+	 * @see #getIndexes()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Content> contents;
+	protected EList<Index> indexes;
+
+	/**
+	 * The cached value of the '{@link #getForms() <em>Forms</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getForms()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<DForm> forms;
 
 	/**
 	 * The cached value of the '{@link #getLinks() <em>Links</em>}' reference list.
@@ -80,11 +92,23 @@ public class PageImpl extends NamedElementImpl implements Page {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Content> getContents() {
-		if (contents == null) {
-			contents = new EObjectContainmentEList<Content>(Content.class, this, ContentConcernPackage.PAGE__CONTENTS);
+	public EList<Index> getIndexes() {
+		if (indexes == null) {
+			indexes = new EObjectContainmentEList<Index>(Index.class, this, ContentConcernPackage.PAGE__INDEXES);
 		}
-		return contents;
+		return indexes;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<DForm> getForms() {
+		if (forms == null) {
+			forms = new EObjectContainmentEList<DForm>(DForm.class, this, ContentConcernPackage.PAGE__FORMS);
+		}
+		return forms;
 	}
 
 	/**
@@ -107,8 +131,10 @@ public class PageImpl extends NamedElementImpl implements Page {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ContentConcernPackage.PAGE__CONTENTS:
-				return ((InternalEList<?>)getContents()).basicRemove(otherEnd, msgs);
+			case ContentConcernPackage.PAGE__INDEXES:
+				return ((InternalEList<?>)getIndexes()).basicRemove(otherEnd, msgs);
+			case ContentConcernPackage.PAGE__FORMS:
+				return ((InternalEList<?>)getForms()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -121,8 +147,10 @@ public class PageImpl extends NamedElementImpl implements Page {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ContentConcernPackage.PAGE__CONTENTS:
-				return getContents();
+			case ContentConcernPackage.PAGE__INDEXES:
+				return getIndexes();
+			case ContentConcernPackage.PAGE__FORMS:
+				return getForms();
 			case ContentConcernPackage.PAGE__LINKS:
 				return getLinks();
 		}
@@ -138,9 +166,13 @@ public class PageImpl extends NamedElementImpl implements Page {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ContentConcernPackage.PAGE__CONTENTS:
-				getContents().clear();
-				getContents().addAll((Collection<? extends Content>)newValue);
+			case ContentConcernPackage.PAGE__INDEXES:
+				getIndexes().clear();
+				getIndexes().addAll((Collection<? extends Index>)newValue);
+				return;
+			case ContentConcernPackage.PAGE__FORMS:
+				getForms().clear();
+				getForms().addAll((Collection<? extends DForm>)newValue);
 				return;
 			case ContentConcernPackage.PAGE__LINKS:
 				getLinks().clear();
@@ -158,8 +190,11 @@ public class PageImpl extends NamedElementImpl implements Page {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ContentConcernPackage.PAGE__CONTENTS:
-				getContents().clear();
+			case ContentConcernPackage.PAGE__INDEXES:
+				getIndexes().clear();
+				return;
+			case ContentConcernPackage.PAGE__FORMS:
+				getForms().clear();
 				return;
 			case ContentConcernPackage.PAGE__LINKS:
 				getLinks().clear();
@@ -176,8 +211,10 @@ public class PageImpl extends NamedElementImpl implements Page {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ContentConcernPackage.PAGE__CONTENTS:
-				return contents != null && !contents.isEmpty();
+			case ContentConcernPackage.PAGE__INDEXES:
+				return indexes != null && !indexes.isEmpty();
+			case ContentConcernPackage.PAGE__FORMS:
+				return forms != null && !forms.isEmpty();
 			case ContentConcernPackage.PAGE__LINKS:
 				return links != null && !links.isEmpty();
 		}

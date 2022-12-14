@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see Glot.DataConcern.DataConcernFactory
  * @model kind="package"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore"
  * @generated
  */
 public interface DataConcernPackage extends EPackage {
@@ -180,13 +181,22 @@ public interface DataConcernPackage extends EPackage {
 	int ENTITY__FEATURES = GlotPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Test</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY__TEST = GlotPackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Entity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY_FEATURE_COUNT = GlotPackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int ENTITY_FEATURE_COUNT = GlotPackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Entity</em>' class.
@@ -308,6 +318,17 @@ public interface DataConcernPackage extends EPackage {
 	EReference getEntity_Features();
 
 	/**
+	 * Returns the meta object for the attribute '{@link Glot.DataConcern.Entity#getTest <em>Test</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Test</em>'.
+	 * @see Glot.DataConcern.Entity#getTest()
+	 * @see #getEntity()
+	 * @generated
+	 */
+	EAttribute getEntity_Test();
+
+	/**
 	 * Returns the meta object for class '{@link Glot.DataConcern.Feature <em>Feature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -414,6 +435,14 @@ public interface DataConcernPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ENTITY__FEATURES = eINSTANCE.getEntity_Features();
+
+		/**
+		 * The meta object literal for the '<em><b>Test</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ENTITY__TEST = eINSTANCE.getEntity_Test();
 
 		/**
 		 * The meta object literal for the '{@link Glot.DataConcern.impl.FeatureImpl <em>Feature</em>}' class.

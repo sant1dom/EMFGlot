@@ -15,7 +15,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link Glot.ContentConcern.Page#getContents <em>Contents</em>}</li>
+ *   <li>{@link Glot.ContentConcern.Page#getIndexes <em>Indexes</em>}</li>
+ *   <li>{@link Glot.ContentConcern.Page#getForms <em>Forms</em>}</li>
  *   <li>{@link Glot.ContentConcern.Page#getLinks <em>Links</em>}</li>
  * </ul>
  *
@@ -25,16 +26,28 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Page extends NamedElement {
 	/**
-	 * Returns the value of the '<em><b>Contents</b></em>' containment reference list.
-	 * The list contents are of type {@link Glot.ContentConcern.Content}.
+	 * Returns the value of the '<em><b>Indexes</b></em>' containment reference list.
+	 * The list contents are of type {@link Glot.ContentConcern.Index}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Contents</em>' containment reference list.
-	 * @see Glot.ContentConcern.ContentConcernPackage#getPage_Contents()
+	 * @return the value of the '<em>Indexes</em>' containment reference list.
+	 * @see Glot.ContentConcern.ContentConcernPackage#getPage_Indexes()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Content> getContents();
+	EList<Index> getIndexes();
+
+	/**
+	 * Returns the value of the '<em><b>Forms</b></em>' containment reference list.
+	 * The list contents are of type {@link Glot.ContentConcern.DForm}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Forms</em>' containment reference list.
+	 * @see Glot.ContentConcern.ContentConcernPackage#getPage_Forms()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<DForm> getForms();
 
 	/**
 	 * Returns the value of the '<em><b>Links</b></em>' reference list.

@@ -7,13 +7,7 @@ context NamedElement {
 }
 
 // ----------------Entity--------------------
-context Entity {
-	constraint OnlyOnePK {
-		check: self.features.select(a|a.type().name == "Attribute")
-							.select(b|b.isPrimaryKey).size() <= 1
-		message: "Only one attribute can be primary key."
-	}
-	
+context Entity {	
 	constraint AtLeastOnePK {
 		check: self.features.select(a|a.type().name == "Attribute")
 							.select(b|b.isPrimaryKey).size() > 0
