@@ -14,11 +14,30 @@
       <details key="constraints" value="NameNotEmpty"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="NameNotEmpty" value="Tuple {&#xA;&#x9;message : String = 'Expected a name',&#xA;&#x9;status : Boolean = not (self.name.oclIsUndefined() or self.name = '')&#xA;}.status"/>
+      <details key="NameNotEmpty" value="Tuple {&#xA;&#x9;message : String = 'Expected a name',&#xA;&#x9;status : Boolean = not NameIsDefined(self.name)&#xA;}.status"/>
     </eAnnotations>
+    <eOperations name="NameIsDefined" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="body" value="name.oclIsUndefined() or name = ''"/>
+      </eAnnotations>
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="SubVersionBetweenZeroAndNine"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="SubVersionBetweenZeroAndNine" value="Tuple {&#xA;&#x9;message : String = 'Subversion should be between zero and nine',&#xA;&#x9;status : Boolean = self.subversion &lt; 10 and self.subversion >= 0&#xA;}.status"/>
+    </eAnnotations>
+    <eOperations name="JoinVersion" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="body" value="(version.toString().concat('.')).concat(subversion.toString())"/>
+      </eAnnotations>
+      <eParameters name="version" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="subversion" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="subversion" lowerBound="1"
@@ -29,6 +48,12 @@
         eType="#//FormConcern/Form" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="pages" upperBound="-1"
         eType="#//ContentConcern/Page" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullVersion" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="derivation" value="JoinVersion(self.version, self.subversion)"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eSubpackages name="ContentConcern" nsURI="https://it.mde.glotlanguage/contenConcern"
       nsPrefix="cc">
@@ -149,7 +174,9 @@
     <eClassifiers xsi:type="ecore:EEnum" name="_MethodType">
       <eLiterals name="POST"/>
       <eLiterals name="GET"/>
+      <eLiterals name="PUT"/>
       <eLiterals name="DELETE"/>
+      <eLiterals name="PATCH"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

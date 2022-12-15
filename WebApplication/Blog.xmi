@@ -6,7 +6,9 @@
     xmlns:dc="https://it.mde.glotlanguage/dataConcern"
     xmlns:web="https://it.mde.glotlanguage"
     xsi:schemaLocation="https://it.mde.glotlanguage/dataConcern https://it.mde.glotlanguage/formConcern#//DataConcern https://it.mde.glotlanguage https://it.mde.glotlanguage/formConcern"
-    name="Blog">
+    name="Blog"
+    version="4"
+    subversion="9">
   <entities
       name="User">
     <features
