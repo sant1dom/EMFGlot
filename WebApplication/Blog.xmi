@@ -8,7 +8,7 @@
     xsi:schemaLocation="https://it.mde.glotlanguage/dataConcern https://it.mde.glotlanguage/formConcern#//DataConcern https://it.mde.glotlanguage https://it.mde.glotlanguage/formConcern"
     name="Blog">
   <entities
-      name="">
+      name="User">
     <features
         xsi:type="dc:Attribute"
         name="id"
