@@ -6,9 +6,7 @@
     xmlns:dc="https://it.mde.glotlanguage/dataConcern"
     xmlns:web="https://it.mde.glotlanguage"
     xsi:schemaLocation="https://it.mde.glotlanguage/dataConcern https://it.mde.glotlanguage/formConcern#//DataConcern https://it.mde.glotlanguage https://it.mde.glotlanguage/formConcern"
-    name="Blog"
-    version="4"
-    subversion="9">
+    name="Ecommerce2">
   <entities
       name="User">
     <features
@@ -29,38 +27,28 @@
         name="password"/>
   </entities>
   <entities
-      name="Post">
+      name="Product">
     <features
         xsi:type="dc:Attribute"
         name="id"
         isPrimaryKey="true"/>
     <features
         xsi:type="dc:Attribute"
-        name="title"/>
+        name="prod_name"/>
     <features
         xsi:type="dc:Attribute"
-        name="content"/>
+        name="price"/>
     <features
         xsi:type="dc:Attribute"
-        name="summary"/>
-    <features
-        xsi:type="dc:Reference"
-        name="tag"
-        foreignKey="//@entities.2"/>
+        name="description"/>
     <features
         xsi:type="dc:Reference"
         name="category"
-        foreignKey="//@entities.3"/>
-  </entities>
-  <entities
-      name="Tag">
+        foreignKey="//@entities.2"/>
     <features
-        xsi:type="dc:Attribute"
-        name="id"
-        isPrimaryKey="true"/>
-    <features
-        xsi:type="dc:Attribute"
-        name="tag_name"/>
+        xsi:type="dc:Reference"
+        name="brand"
+        foreignKey="//@entities.4"/>
   </entities>
   <entities
       name="Category">
@@ -73,38 +61,60 @@
         name="cat_name"/>
   </entities>
   <entities
-      name="Comment">
+      name="Review">
     <features
         xsi:type="dc:Attribute"
         name="id"
         isPrimaryKey="true"/>
     <features
         xsi:type="dc:Attribute"
-        name="comment_content"/>
+        name="text"/>
+    <features
+        xsi:type="dc:Attribute"
+        name="vote"
+        type="int"/>
     <features
         xsi:type="dc:Reference"
-        name="post"
+        name="user"
+        foreignKey="//@entities.0"/>
+    <features
+        xsi:type="dc:Reference"
+        name="product"
         foreignKey="//@entities.1"/>
+  </entities>
+  <entities
+      name="Brand">
+    <features
+        xsi:type="dc:Attribute"
+        name="id"
+        isPrimaryKey="true"/>
+    <features
+        xsi:type="dc:Attribute"
+        name="brand_name"/>
   </entities>
   <forms name="Login"
       entity="//@entities.0">
     <elements
         name="Username"
         label="Username"
-        tooltip="Insert username"
         attribute="//@entities.0/@features.3"/>
-    <elements
-        name="Password"
-        label="Password"
-        tooltip="Insert password"
-        attribute="//@entities.0/@features.4"/>
     <elements
         name="Login Button"
         label="Login"
         tooltip="Login"/>
   </forms>
-  <pages name="Posts">
-    <forms name="Login Form"
-        form="//@forms.0"/>
+  <pages name="Products"
+      forms="//@forms.0"
+      links="//@pages.0">
+    <indexes
+        name="Products"
+        entity="//@entities.1"
+        features="//@entities.1/@features.1 //@entities.1/@features.2 //@entities.1/@features.3"
+        individuals="//@pages.0/@individuals.0"/>
+    <individuals
+        name="Product"
+        entity="//@entities.1"
+        features="//@entities.1/@features.1 //@entities.1/@features.2 //@entities.1/@features.3 //@entities.1/@features.4"
+        index="//@pages.0/@indexes.0"/>
   </pages>
 </web:System>
