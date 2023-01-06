@@ -1,5 +1,5 @@
--- @path Glot=/it.mde.glotlanguage/EMFGolt/WebApplication/model.ecore
--- @path NewGlot=/it.mde.glotlanguage/EMFGolt/WebApplication/model2.ecore
+-- @path Glot=/it.mde.glotlanguage/EMFGlot/WebApplication/model.ecore
+-- @path NewGlot=/it.mde.glotlanguage/EMFGlot/WebApplication/model2.ecore
 
 module atlmodeltranformation;
 create OUT : NewGlot from IN : Glot;
@@ -102,7 +102,7 @@ rule Glot2NewGlot {
 			entities <- s.entities,
 			forms <- s.forms,
 			subversion <- s.subversion,
-			name <- 'ssss',
+			name <- s.name,
 			pages <- s.pages
 		)
 }

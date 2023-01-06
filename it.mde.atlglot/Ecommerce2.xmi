@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<web:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dc="https://it.mde.glotlanguage2/dataConcern" xmlns:web="https://it.mde.glotlanguage2" name="ssss">
+<web:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dc="https://it.mde.glotlanguage2/dataConcern" xmlns:web="https://it.mde.glotlanguage2" name="Ecommerce">
   <entities name="User">
     <features xsi:type="dc:Attribute" name="id" isPrimaryKey="true"/>
     <features xsi:type="dc:Attribute" name="name"/>
