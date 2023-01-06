@@ -1,0 +1,20 @@
+[comment encoding = UTF-8 /]
+[module CreateTable('https://it.mde.glotlanguage')]
+[import it::mde::acceleo2::main::Features /]
+
+[template public generateTable( anEntity: Entity)] 
+-- GENERATED CREATE TABLE STATMENT FOR THE ENTITY [anEntity.name/]
+CREATE TABLE [anEntity.name/] (
+	[for (feature : Feature | anEntity.features)separator(',\n\t')][feature.name/] [generateFeature(feature)/][/for][for (attribute : Attribute | anEntity.features->selectByType(Attribute)->select(isPrimaryKey=true)) before(',\n\t')]PRIMARY KEY ([attribute.name/])[/for][if (anEntity.features->selectByType(Reference)->size() > 0)][',\n\t'/][/if][for (feature : Feature | anEntity.features->selectByType(Reference))separator(',\n\t')][foreignKey(feature)/][/for]
+);
+[/template] 
+
+[template public generateSelect( anEntity: Entity)]
+-- SELECTING ALL THE ATTRBUTES FROM THE ENTITY [anEntity.name/] (NO REFERENCES)
+SELECT [for (attribute : Attribute | anEntity.features->selectByType(Attribute)) separator (', ')][attribute.name/][/for] FROM [anEntity.name/];
+[/template] 
+
+[template public generateSelectisPK( anEntity: Entity)]
+-- SELECTING ALL THE ATTRBUTES FROM THE ENTITY [anEntity.name/] (NO REFERENCES) WHERE THE PRIMARY KEY IS EQUAL TO SOMETHING
+SELECT [for (attribute : Attribute | anEntity.features->selectByType(Attribute)) separator (', ')][attribute.name/][/for] FROM [anEntity.name/] WHERE [anEntity.features->selectByType(Attribute)->select(isPrimaryKey=true).name/] = ?;
+[/template] 

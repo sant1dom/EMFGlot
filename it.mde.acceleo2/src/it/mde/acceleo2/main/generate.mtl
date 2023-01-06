@@ -1,0 +1,19 @@
+[comment encoding = UTF-8 /]
+[module generate('https://it.mde.glotlanguage')]
+[import it::mde::acceleo2::main::CreateTable /]
+
+
+[template public generateElement(aSystem : System)]
+[comment @main/]
+[file (aSystem.name, false, 'UTF-8')]
+	[for (entity : Entity | aSystem.entities)]
+[generateTable(entity)/]
+[generateSelect(entity)/]
+[generateSelectisPK(entity)/]
+
+
+	[/for]
+[/file]
+
+
+[/template]
