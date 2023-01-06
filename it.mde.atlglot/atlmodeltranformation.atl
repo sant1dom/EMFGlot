@@ -1,0 +1,109 @@
+-- @path Glot=/it.mde.glotlanguage/EMFGolt/WebApplication/model.ecore
+-- @path NewGlot=/it.mde.glotlanguage/EMFGolt/WebApplication/model2.ecore
+
+module atlmodeltranformation;
+create OUT : NewGlot from IN : Glot;
+rule Individuals {
+	from
+		s : Glot!Individual
+	to 
+		t : NewGlot!Individual (
+			entity <- s.entity,
+			features <- s.features,
+			name <- s.name
+		)
+}
+
+rule Indexes {
+	from
+		s : Glot!Index
+	to 
+		t : NewGlot!Index (
+			entity <- s.entity,
+			features <- s.features,
+			individuals <- s.individuals,
+			name <- s.name
+		)
+}
+
+rule References {
+	from
+		s : Glot!Reference
+	to 
+		t : NewGlot!Reference (
+			foreignKey <- s.foreignKey,
+			name <- s.name
+		)
+}
+
+rule Elements {
+	from
+		s : Glot!Element
+	to 
+		t : NewGlot!Element (
+			name <- s.name,
+			attribute <- s.attribute,
+			label <- s.label,
+			tooltip <- s.tooltip
+		)
+}
+rule Forms {
+	from
+		s : Glot!Form
+	to 
+		t : NewGlot!Form (
+			elements <- s.elements,
+			name <- s.name,
+			entity <- s.entity,
+			method <- s.method
+		)
+}
+
+rule Pages {
+	from
+		s : Glot!Page
+	to 
+		t : NewGlot!Page (
+			name <- s.name,
+			links <- s.links,
+			forms <- s.forms,
+			indexes <- s.indexes,
+			individuals <- s.indexes->collect(e | e.individuals)
+		)
+}
+
+rule Attributes {
+	from
+		s : Glot!Attribute
+	to 
+		t : NewGlot!Attribute (
+			isPrimaryKey <- s.isPrimaryKey,
+			name <- s.name,
+			type <- s.type
+		)
+}
+
+rule Entities {
+	from
+		s : Glot!Entity
+	to 
+		t : NewGlot!Entity (
+			features <- s.features,
+			name <- s.name
+		)
+}
+
+rule Glot2NewGlot {
+	from
+		s: Glot!System
+	to
+		t : NewGlot!System (
+			version <- s.version,
+			entities <- s.entities,
+			forms <- s.forms,
+			subversion <- s.subversion,
+			name <- 'ssss',
+			pages <- s.pages
+		)
+}
+

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dc="https://it.mde.glotlanguage2/dataConcern" xmlns:web="https://it.mde.glotlanguage2" name="ssss">
+  <entities name="User">
+    <features xsi:type="dc:Attribute" name="id" isPrimaryKey="true"/>
+    <features xsi:type="dc:Attribute" name="name"/>
+    <features xsi:type="dc:Attribute" name="email"/>
+    <features xsi:type="dc:Attribute" name="username"/>
+    <features xsi:type="dc:Attribute" name="password"/>
+  </entities>
+  <entities name="Product">
+    <features xsi:type="dc:Attribute" name="id" isPrimaryKey="true"/>
+    <features xsi:type="dc:Attribute" name="prod_name"/>
+    <features xsi:type="dc:Attribute" name="price" type="double"/>
+    <features xsi:type="dc:Attribute" name="description"/>
+    <features xsi:type="dc:Reference" name="category" foreignKey="//@entities.2"/>
+    <features xsi:type="dc:Reference" name="brand" foreignKey="//@entities.4"/>
+  </entities>
+  <entities name="Category">
+    <features xsi:type="dc:Attribute" name="id" isPrimaryKey="true"/>
+    <features xsi:type="dc:Attribute" name="cat_name"/>
+  </entities>
+  <entities name="Review">
+    <features xsi:type="dc:Attribute" name="id" isPrimaryKey="true"/>
+    <features xsi:type="dc:Attribute" name="text"/>
+    <features xsi:type="dc:Attribute" name="vote" type="int"/>
+    <features xsi:type="dc:Reference" name="user" foreignKey="//@entities.0"/>
+    <features xsi:type="dc:Reference" name="product"/>
+  </entities>
+  <entities name="Brand">
+    <features xsi:type="dc:Attribute" name="id" isPrimaryKey="true"/>
+    <features xsi:type="dc:Attribute" name="brand_name"/>
+  </entities>
+  <forms name="Login" entity="//@entities.0">
+    <elements name="Username" label="Username" tooltip="insert username" attribute="//@entities.0/@features.3"/>
+    <elements name="Password" label="Password" tooltip="insert password" attribute="//@entities.0/@features.4"/>
+    <elements name="Login Button" label="Login" tooltip="Login"/>
+  </forms>
+  <pages name="Products">
+    <indexes name="Products" entity="//@entities.1" features="//@entities.1/@features.1 //@entities.1/@features.4 //@entities.1/@features.3 //@entities.1/@features.0" individuals="//@pages.0/@individuals.0"/>
+    <individuals name="Product" entity="//@entities.1" features="//@entities.1/@features.0 //@entities.1/@features.1 //@entities.1/@features.2 //@entities.1/@features.3 //@entities.1/@features.4 //@entities.1/@features.5"/>
+  </pages>
+</web:System>

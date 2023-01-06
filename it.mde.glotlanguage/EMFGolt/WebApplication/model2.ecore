@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Glot" nsURI="https://it.mde.glotlanguage" nsPrefix="web">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Glot" nsURI="https://it.mde.glotlanguage2" nsPrefix="web">
   <eAnnotations source="http://www.eclipse.org/OCL/Import">
     <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
   </eAnnotations>
@@ -55,7 +55,7 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-  <eSubpackages name="ContentConcern" nsURI="https://it.mde.glotlanguage/contenConcern"
+  <eSubpackages name="ContentConcern" nsURI="https://it.mde.glotlanguage2/contenConcern"
       nsPrefix="cc">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
@@ -83,7 +83,11 @@
         <details key="SameEntityAsParent" value="Index.allInstances()->select(a | a.individuals->includes(self))->asSequence()->first().entity = self.entity"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="index" lowerBound="1"
-          eType="#//ContentConcern/Index" derived="true"/>
+          eType="#//ContentConcern/Index" derived="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="derivation" value="Index.allInstances()->select(a | a.individuals->includes(self))->asSequence()->first()"/>
+        </eAnnotations>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Index" eSuperTypes="#//ContentConcern/DynamicContent">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
@@ -106,7 +110,7 @@
           eType="#//ContentConcern/Page"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="DataConcern" nsURI="https://it.mde.glotlanguage/dataConcern"
+  <eSubpackages name="DataConcern" nsURI="https://it.mde.glotlanguage2/dataConcern"
       nsPrefix="dc">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
@@ -147,7 +151,7 @@
       <eLiterals name="double"/>
     </eClassifiers>
   </eSubpackages>
-  <eSubpackages name="FormConcern" nsURI="https://it.mde.glotlanguage/formConcern"
+  <eSubpackages name="FormConcern" nsURI="https://it.mde.glotlanguage2/formConcern"
       nsPrefix="fc">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
