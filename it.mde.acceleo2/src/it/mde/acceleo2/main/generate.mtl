@@ -1,5 +1,5 @@
 [comment encoding = UTF-8 /]
-[module generate('https://it.mde.glotlanguage2')]
+[module generate('https://it.mde.glotlanguage')]
 [import it::mde::acceleo2::main::CreateTable /]
 
 
