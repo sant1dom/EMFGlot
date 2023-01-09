@@ -39,6 +39,14 @@ public enum _MethodType implements Enumerator {
 	GET(0, "GET", "GET"),
 
 	/**
+	 * The '<em><b>PUT</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PUT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	PUT(0, "PUT", "PUT"), /**
 	 * The '<em><b>DELETE</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -46,7 +54,15 @@ public enum _MethodType implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	DELETE(0, "DELETE", "DELETE");
+	DELETE(0, "DELETE", "DELETE"), /**
+	 * The '<em><b>PATCH</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PATCH_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	PATCH(0, "PATCH", "PATCH");
 
 	/**
 	 * The '<em><b>POST</b></em>' literal value.
@@ -71,6 +87,17 @@ public enum _MethodType implements Enumerator {
 	public static final int GET_VALUE = 0;
 
 	/**
+	 * The '<em><b>PUT</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PUT
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PUT_VALUE = 0;
+
+	/**
 	 * The '<em><b>DELETE</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -82,6 +109,17 @@ public enum _MethodType implements Enumerator {
 	public static final int DELETE_VALUE = 0;
 
 	/**
+	 * The '<em><b>PATCH</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #PATCH
+	 * @model
+	 * @generated
+	 * @ordered
+	 */
+	public static final int PATCH_VALUE = 0;
+
+	/**
 	 * An array of all the '<em><b>Method Type</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -91,7 +129,9 @@ public enum _MethodType implements Enumerator {
 		new _MethodType[] {
 			POST,
 			GET,
+			PUT,
 			DELETE,
+			PATCH,
 		};
 
 	/**

@@ -16,8 +16,10 @@ import Glot.DataConcern.DataConcernPackage;
 // import Glot.FormConcern.FormConcernTables;
 import Glot.GlotPackage;
 import Glot.GlotTables;
+import org.eclipse.emf.ecore.EcorePackage;
 import org.eclipse.ocl.pivot.ids.ClassId;
 import org.eclipse.ocl.pivot.ids.CollectionTypeId;
+import org.eclipse.ocl.pivot.ids.DataTypeId;
 import org.eclipse.ocl.pivot.ids.EnumerationId;
 import org.eclipse.ocl.pivot.ids.IdManager;
 import org.eclipse.ocl.pivot.ids.NsURIPackageId;
@@ -61,6 +63,7 @@ public class FormConcernTables extends AbstractTables
 	/**
 	 *	Constants used by auto-generated code.
 	 */
+	public static final /*@NonInvalid*/ NsURIPackageId PACKid_http_c_s_s_www_eclipse_org_s_emf_s_2002_s_Ecore = IdManager.getNsURIPackageId("http://www.eclipse.org/emf/2002/Ecore", null, EcorePackage.eINSTANCE);
 	public static final /*@NonInvalid*/ NsURIPackageId PACKid_https_c_s_s_it_mde_glotlanguage = IdManager.getNsURIPackageId("https://it.mde.glotlanguage", null, GlotPackage.eINSTANCE);
 	public static final /*@NonInvalid*/ NsURIPackageId PACKid_https_c_s_s_it_mde_glotlanguage_s_contenConcern = IdManager.getNsURIPackageId("https://it.mde.glotlanguage/contenConcern", null, ContentConcernPackage.eINSTANCE);
 	public static final /*@NonInvalid*/ NsURIPackageId PACKid_https_c_s_s_it_mde_glotlanguage_s_dataConcern = IdManager.getNsURIPackageId("https://it.mde.glotlanguage/dataConcern", null, DataConcernPackage.eINSTANCE);
@@ -71,6 +74,7 @@ public class FormConcernTables extends AbstractTables
 	public static final /*@NonInvalid*/ ClassId CLSSid_Entity = FormConcernTables.PACKid_https_c_s_s_it_mde_glotlanguage_s_dataConcern.getClassId("Entity", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_Form = FormConcernTables.PACKid_https_c_s_s_it_mde_glotlanguage_s_formConcern.getClassId("Form", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_System = FormConcernTables.PACKid_https_c_s_s_it_mde_glotlanguage.getClassId("System", 0);
+	public static final /*@NonInvalid*/ DataTypeId DATAid_EInt = FormConcernTables.PACKid_http_c_s_s_www_eclipse_org_s_emf_s_2002_s_Ecore.getDataTypeId("EInt", 0);
 	public static final /*@NonInvalid*/ EnumerationId ENUMid__MethodType = FormConcernTables.PACKid_https_c_s_s_it_mde_glotlanguage_s_formConcern.getEnumerationId("_MethodType");
 	public static final /*@NonInvalid*/ CollectionTypeId BAG_CLSSid_DForm = TypeId.BAG.getSpecializedId(FormConcernTables.CLSSid_DForm);
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Element = TypeId.ORDERED_SET.getSpecializedId(FormConcernTables.CLSSid_Element);
@@ -307,7 +311,9 @@ public class FormConcernTables extends AbstractTables
 		}
 
 		private static final ExecutorOperation /*@NonNull*/ [] _Element__Element = {};
-		private static final ExecutorOperation /*@NonNull*/ [] _Element__NamedElement = {};
+		private static final ExecutorOperation /*@NonNull*/ [] _Element__NamedElement = {
+			GlotTables.Operations._NamedElement__NameIsDefined /* NameIsDefined(String[1]) */
+		};
 		private static final ExecutorOperation /*@NonNull*/ [] _Element__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
 			OCLstdlibTables.Operations._OclAny___eq_ /* _'='(OclSelf[?]) */,
@@ -336,7 +342,9 @@ public class FormConcernTables extends AbstractTables
 		};
 
 		private static final ExecutorOperation /*@NonNull*/ [] _Form__Form = {};
-		private static final ExecutorOperation /*@NonNull*/ [] _Form__NamedElement = {};
+		private static final ExecutorOperation /*@NonNull*/ [] _Form__NamedElement = {
+			GlotTables.Operations._NamedElement__NameIsDefined /* NameIsDefined(String[1]) */
+		};
 		private static final ExecutorOperation /*@NonNull*/ [] _Form__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
 			OCLstdlibTables.Operations._OclAny___eq_ /* _'='(OclSelf[?]) */,
@@ -488,11 +496,15 @@ public class FormConcernTables extends AbstractTables
 
 		public static final EcoreExecutorEnumerationLiteral __MethodType__POST = new EcoreExecutorEnumerationLiteral(FormConcernPackage.Literals._METHOD_TYPE.getEEnumLiteral("POST"), Types.__MethodType, 0);
 		public static final EcoreExecutorEnumerationLiteral __MethodType__GET = new EcoreExecutorEnumerationLiteral(FormConcernPackage.Literals._METHOD_TYPE.getEEnumLiteral("GET"), Types.__MethodType, 1);
-		public static final EcoreExecutorEnumerationLiteral __MethodType__DELETE = new EcoreExecutorEnumerationLiteral(FormConcernPackage.Literals._METHOD_TYPE.getEEnumLiteral("DELETE"), Types.__MethodType, 2);
+		public static final EcoreExecutorEnumerationLiteral __MethodType__PUT = new EcoreExecutorEnumerationLiteral(FormConcernPackage.Literals._METHOD_TYPE.getEEnumLiteral("PUT"), Types.__MethodType, 2);
+		public static final EcoreExecutorEnumerationLiteral __MethodType__DELETE = new EcoreExecutorEnumerationLiteral(FormConcernPackage.Literals._METHOD_TYPE.getEEnumLiteral("DELETE"), Types.__MethodType, 3);
+		public static final EcoreExecutorEnumerationLiteral __MethodType__PATCH = new EcoreExecutorEnumerationLiteral(FormConcernPackage.Literals._METHOD_TYPE.getEEnumLiteral("PATCH"), Types.__MethodType, 4);
 		private static final EcoreExecutorEnumerationLiteral /*@NonNull*/ [] __MethodType = {
 			__MethodType__POST,
 			__MethodType__GET,
-			__MethodType__DELETE
+			__MethodType__PUT,
+			__MethodType__DELETE,
+			__MethodType__PATCH
 		};
 
 		/**

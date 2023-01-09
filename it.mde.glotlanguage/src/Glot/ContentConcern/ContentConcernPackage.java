@@ -5,6 +5,7 @@ package Glot.ContentConcern;
 import Glot.GlotPackage;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -22,6 +23,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see Glot.ContentConcern.ContentConcernFactory
  * @model kind="package"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore"
  * @generated
  */
 public interface ContentConcernPackage extends EPackage {
@@ -86,6 +88,24 @@ public interface ContentConcernPackage extends EPackage {
 	int CONTENT_FEATURE_COUNT = GlotPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Name Is Defined</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT___NAME_IS_DEFINED__STRING = GlotPackage.NAMED_ELEMENT___NAME_IS_DEFINED__STRING;
+
+	/**
+	 * The operation id for the '<em>Name Not Empty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CONTENT___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP = GlotPackage.NAMED_ELEMENT___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP;
+
+	/**
 	 * The number of operations of the '<em>Content</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -141,13 +161,40 @@ public interface ContentConcernPackage extends EPackage {
 	int DCONTENT_FEATURE_COUNT = CONTENT_FEATURE_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Name Is Defined</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCONTENT___NAME_IS_DEFINED__STRING = CONTENT___NAME_IS_DEFINED__STRING;
+
+	/**
+	 * The operation id for the '<em>Name Not Empty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCONTENT___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP = CONTENT___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Only Features From Ref</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DCONTENT___ONLY_FEATURES_FROM_REF__DIAGNOSTICCHAIN_MAP = CONTENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>DContent</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DCONTENT_OPERATION_COUNT = CONTENT_OPERATION_COUNT + 0;
+	int DCONTENT_OPERATION_COUNT = CONTENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link Glot.ContentConcern.impl.DFormImpl <em>DForm</em>}' class.
@@ -187,6 +234,24 @@ public interface ContentConcernPackage extends EPackage {
 	int DFORM_FEATURE_COUNT = CONTENT_FEATURE_COUNT + 1;
 
 	/**
+	 * The operation id for the '<em>Name Is Defined</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DFORM___NAME_IS_DEFINED__STRING = CONTENT___NAME_IS_DEFINED__STRING;
+
+	/**
+	 * The operation id for the '<em>Name Not Empty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DFORM___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP = CONTENT___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP;
+
+	/**
 	 * The number of operations of the '<em>DForm</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -203,7 +268,107 @@ public interface ContentConcernPackage extends EPackage {
 	 * @see Glot.ContentConcern.impl.ContentConcernPackageImpl#getIndividual()
 	 * @generated
 	 */
-	int INDIVIDUAL = 3;
+	int INDIVIDUAL = 4;
+
+	/**
+	 * The meta object id for the '{@link Glot.ContentConcern.impl.IndexImpl <em>Index</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see Glot.ContentConcern.impl.IndexImpl
+	 * @see Glot.ContentConcern.impl.ContentConcernPackageImpl#getIndex()
+	 * @generated
+	 */
+	int INDEX = 3;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX__NAME = DCONTENT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Entity</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX__ENTITY = DCONTENT__ENTITY;
+
+	/**
+	 * The feature id for the '<em><b>Features</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX__FEATURES = DCONTENT__FEATURES;
+
+	/**
+	 * The feature id for the '<em><b>Individuals</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX__INDIVIDUALS = DCONTENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Index</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX_FEATURE_COUNT = DCONTENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Name Is Defined</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX___NAME_IS_DEFINED__STRING = DCONTENT___NAME_IS_DEFINED__STRING;
+
+	/**
+	 * The operation id for the '<em>Name Not Empty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP = DCONTENT___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Only Features From Ref</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX___ONLY_FEATURES_FROM_REF__DIAGNOSTICCHAIN_MAP = DCONTENT___ONLY_FEATURES_FROM_REF__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>No Duplicates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX___NO_DUPLICATES__DIAGNOSTICCHAIN_MAP = DCONTENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Index</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDEX_OPERATION_COUNT = DCONTENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -242,77 +407,49 @@ public interface ContentConcernPackage extends EPackage {
 	int INDIVIDUAL_FEATURE_COUNT = DCONTENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Name Is Defined</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDIVIDUAL___NAME_IS_DEFINED__STRING = DCONTENT___NAME_IS_DEFINED__STRING;
+
+	/**
+	 * The operation id for the '<em>Name Not Empty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDIVIDUAL___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP = DCONTENT___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Only Features From Ref</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDIVIDUAL___ONLY_FEATURES_FROM_REF__DIAGNOSTICCHAIN_MAP = DCONTENT___ONLY_FEATURES_FROM_REF__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Same Entity As Parent</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INDIVIDUAL___SAME_ENTITY_AS_PARENT__DIAGNOSTICCHAIN_MAP = DCONTENT_OPERATION_COUNT + 0;
+
+	/**
 	 * The number of operations of the '<em>Individual</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INDIVIDUAL_OPERATION_COUNT = DCONTENT_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link Glot.ContentConcern.impl.IndexImpl <em>Index</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see Glot.ContentConcern.impl.IndexImpl
-	 * @see Glot.ContentConcern.impl.ContentConcernPackageImpl#getIndex()
-	 * @generated
-	 */
-	int INDEX = 4;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INDEX__NAME = DCONTENT__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Entity</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INDEX__ENTITY = DCONTENT__ENTITY;
-
-	/**
-	 * The feature id for the '<em><b>Features</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INDEX__FEATURES = DCONTENT__FEATURES;
-
-	/**
-	 * The feature id for the '<em><b>Individuals List</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INDEX__INDIVIDUALS_LIST = DCONTENT_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of structural features of the '<em>Index</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INDEX_FEATURE_COUNT = DCONTENT_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of operations of the '<em>Index</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INDEX_OPERATION_COUNT = DCONTENT_OPERATION_COUNT + 0;
+	int INDIVIDUAL_OPERATION_COUNT = DCONTENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link Glot.ContentConcern.impl.PageImpl <em>Page</em>}' class.
@@ -370,6 +507,24 @@ public interface ContentConcernPackage extends EPackage {
 	int PAGE_FEATURE_COUNT = GlotPackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Name Is Defined</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE___NAME_IS_DEFINED__STRING = GlotPackage.NAMED_ELEMENT___NAME_IS_DEFINED__STRING;
+
+	/**
+	 * The operation id for the '<em>Name Not Empty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PAGE___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP = GlotPackage.NAMED_ELEMENT___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP;
+
+	/**
 	 * The number of operations of the '<em>Page</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -422,6 +577,16 @@ public interface ContentConcernPackage extends EPackage {
 	EReference getDContent_Features();
 
 	/**
+	 * Returns the meta object for the '{@link Glot.ContentConcern.DContent#OnlyFeaturesFromRef(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Only Features From Ref</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Only Features From Ref</em>' operation.
+	 * @see Glot.ContentConcern.DContent#OnlyFeaturesFromRef(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getDContent__OnlyFeaturesFromRef__DiagnosticChain_Map();
+
+	/**
 	 * Returns the meta object for class '{@link Glot.ContentConcern.DForm <em>DForm</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -453,6 +618,16 @@ public interface ContentConcernPackage extends EPackage {
 	EClass getIndividual();
 
 	/**
+	 * Returns the meta object for the '{@link Glot.ContentConcern.Individual#SameEntityAsParent(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Same Entity As Parent</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Same Entity As Parent</em>' operation.
+	 * @see Glot.ContentConcern.Individual#SameEntityAsParent(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getIndividual__SameEntityAsParent__DiagnosticChain_Map();
+
+	/**
 	 * Returns the meta object for class '{@link Glot.ContentConcern.Index <em>Index</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -463,15 +638,25 @@ public interface ContentConcernPackage extends EPackage {
 	EClass getIndex();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link Glot.ContentConcern.Index#getIndividualsList <em>Individuals List</em>}'.
+	 * Returns the meta object for the containment reference list '{@link Glot.ContentConcern.Index#getIndividuals <em>Individuals</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Individuals List</em>'.
-	 * @see Glot.ContentConcern.Index#getIndividualsList()
+	 * @return the meta object for the containment reference list '<em>Individuals</em>'.
+	 * @see Glot.ContentConcern.Index#getIndividuals()
 	 * @see #getIndex()
 	 * @generated
 	 */
-	EReference getIndex_IndividualsList();
+	EReference getIndex_Individuals();
+
+	/**
+	 * Returns the meta object for the '{@link Glot.ContentConcern.Index#NoDuplicates(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>No Duplicates</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>No Duplicates</em>' operation.
+	 * @see Glot.ContentConcern.Index#NoDuplicates(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getIndex__NoDuplicates__DiagnosticChain_Map();
 
 	/**
 	 * Returns the meta object for class '{@link Glot.ContentConcern.Page <em>Page</em>}'.
@@ -576,6 +761,14 @@ public interface ContentConcernPackage extends EPackage {
 		EReference DCONTENT__FEATURES = eINSTANCE.getDContent_Features();
 
 		/**
+		 * The meta object literal for the '<em><b>Only Features From Ref</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation DCONTENT___ONLY_FEATURES_FROM_REF__DIAGNOSTICCHAIN_MAP = eINSTANCE.getDContent__OnlyFeaturesFromRef__DiagnosticChain_Map();
+
+		/**
 		 * The meta object literal for the '{@link Glot.ContentConcern.impl.DFormImpl <em>DForm</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -604,6 +797,14 @@ public interface ContentConcernPackage extends EPackage {
 		EClass INDIVIDUAL = eINSTANCE.getIndividual();
 
 		/**
+		 * The meta object literal for the '<em><b>Same Entity As Parent</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INDIVIDUAL___SAME_ENTITY_AS_PARENT__DIAGNOSTICCHAIN_MAP = eINSTANCE.getIndividual__SameEntityAsParent__DiagnosticChain_Map();
+
+		/**
 		 * The meta object literal for the '{@link Glot.ContentConcern.impl.IndexImpl <em>Index</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -614,12 +815,20 @@ public interface ContentConcernPackage extends EPackage {
 		EClass INDEX = eINSTANCE.getIndex();
 
 		/**
-		 * The meta object literal for the '<em><b>Individuals List</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Individuals</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference INDEX__INDIVIDUALS_LIST = eINSTANCE.getIndex_IndividualsList();
+		EReference INDEX__INDIVIDUALS = eINSTANCE.getIndex_Individuals();
+
+		/**
+		 * The meta object literal for the '<em><b>No Duplicates</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation INDEX___NO_DUPLICATES__DIAGNOSTICCHAIN_MAP = eINSTANCE.getIndex__NoDuplicates__DiagnosticChain_Map();
 
 		/**
 		 * The meta object literal for the '{@link Glot.ContentConcern.impl.PageImpl <em>Page</em>}' class.

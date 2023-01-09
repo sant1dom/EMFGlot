@@ -14,13 +14,20 @@ package Glot;
 import Glot.ContentConcern.ContentConcernPackage;
 import Glot.DataConcern.DataConcernPackage;
 import Glot.FormConcern.FormConcernPackage;
+// import Glot.GlotPackage;
 // import Glot.GlotTables;
+import java.lang.String;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EcorePackage;
+import org.eclipse.ocl.pivot.ParameterTypes;
+import org.eclipse.ocl.pivot.TemplateParameters;
 import org.eclipse.ocl.pivot.ids.ClassId;
 import org.eclipse.ocl.pivot.ids.CollectionTypeId;
 import org.eclipse.ocl.pivot.ids.DataTypeId;
 import org.eclipse.ocl.pivot.ids.IdManager;
 import org.eclipse.ocl.pivot.ids.NsURIPackageId;
+import org.eclipse.ocl.pivot.ids.TuplePartId;
+import org.eclipse.ocl.pivot.ids.TupleTypeId;
 import org.eclipse.ocl.pivot.ids.TypeId;
 import org.eclipse.ocl.pivot.internal.library.ecore.EcoreExecutorPackage;
 import org.eclipse.ocl.pivot.internal.library.ecore.EcoreExecutorProperty;
@@ -31,6 +38,9 @@ import org.eclipse.ocl.pivot.internal.library.executor.ExecutorProperty;
 import org.eclipse.ocl.pivot.internal.library.executor.ExecutorStandardLibrary;
 import org.eclipse.ocl.pivot.oclstdlib.OCLstdlibTables;
 import org.eclipse.ocl.pivot.utilities.AbstractTables;
+import org.eclipse.ocl.pivot.utilities.TypeUtil;
+import org.eclipse.ocl.pivot.utilities.ValueUtil;
+import org.eclipse.ocl.pivot.values.IntegerValue;
 
 /**
  * GlotTables provides the dispatch tables for the Glot for use by the OCL dispatcher.
@@ -58,16 +68,28 @@ public class GlotTables extends AbstractTables
 	 *	Constants used by auto-generated code.
 	 */
 	public static final /*@NonInvalid*/ NsURIPackageId PACKid_http_c_s_s_www_eclipse_org_s_emf_s_2002_s_Ecore = IdManager.getNsURIPackageId("http://www.eclipse.org/emf/2002/Ecore", null, EcorePackage.eINSTANCE);
+	public static final /*@NonInvalid*/ NsURIPackageId PACKid_https_c_s_s_it_mde_glotlanguage = IdManager.getNsURIPackageId("https://it.mde.glotlanguage", null, GlotPackage.eINSTANCE);
 	public static final /*@NonInvalid*/ NsURIPackageId PACKid_https_c_s_s_it_mde_glotlanguage_s_contenConcern = IdManager.getNsURIPackageId("https://it.mde.glotlanguage/contenConcern", null, ContentConcernPackage.eINSTANCE);
 	public static final /*@NonInvalid*/ NsURIPackageId PACKid_https_c_s_s_it_mde_glotlanguage_s_dataConcern = IdManager.getNsURIPackageId("https://it.mde.glotlanguage/dataConcern", null, DataConcernPackage.eINSTANCE);
 	public static final /*@NonInvalid*/ NsURIPackageId PACKid_https_c_s_s_it_mde_glotlanguage_s_formConcern = IdManager.getNsURIPackageId("https://it.mde.glotlanguage/formConcern", null, FormConcernPackage.eINSTANCE);
 	public static final /*@NonInvalid*/ ClassId CLSSid_Entity = GlotTables.PACKid_https_c_s_s_it_mde_glotlanguage_s_dataConcern.getClassId("Entity", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_Form = GlotTables.PACKid_https_c_s_s_it_mde_glotlanguage_s_formConcern.getClassId("Form", 0);
+	public static final /*@NonInvalid*/ ClassId CLSSid_NamedElement = GlotTables.PACKid_https_c_s_s_it_mde_glotlanguage.getClassId("NamedElement", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_Page = GlotTables.PACKid_https_c_s_s_it_mde_glotlanguage_s_contenConcern.getClassId("Page", 0);
+	public static final /*@NonInvalid*/ ClassId CLSSid_System = GlotTables.PACKid_https_c_s_s_it_mde_glotlanguage.getClassId("System", 0);
 	public static final /*@NonInvalid*/ DataTypeId DATAid_EInt = GlotTables.PACKid_http_c_s_s_www_eclipse_org_s_emf_s_2002_s_Ecore.getDataTypeId("EInt", 0);
+	public static final /*@NonInvalid*/ IntegerValue INT_0 = ValueUtil.integerValueOf("0");
+	public static final /*@NonInvalid*/ IntegerValue INT_10 = ValueUtil.integerValueOf("10");
+	public static final /*@NonInvalid*/ TuplePartId PARTid_ = IdManager.getTuplePartId(0, "message", TypeId.STRING);
+	public static final /*@NonInvalid*/ TuplePartId PARTid__0 = IdManager.getTuplePartId(1, "status", TypeId.BOOLEAN);
+	public static final /*@NonInvalid*/ String STR_ = "";
+	public static final /*@NonInvalid*/ String STR_Expected_32_a_32_name = "Expected a name";
+	public static final /*@NonInvalid*/ String STR_Subversion_32_should_32_be_32_between_32_zero_32_and_32_nine = "Subversion should be between zero and nine";
+	public static final /*@NonInvalid*/ String STR__0 = ".";
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Entity = TypeId.ORDERED_SET.getSpecializedId(GlotTables.CLSSid_Entity);
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Form = TypeId.ORDERED_SET.getSpecializedId(GlotTables.CLSSid_Form);
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Page = TypeId.ORDERED_SET.getSpecializedId(GlotTables.CLSSid_Page);
+	public static final /*@NonInvalid*/ TupleTypeId TUPLid_ = IdManager.getTupleTypeId("Tuple", GlotTables.PARTid_, GlotTables.PARTid__0);
 
 	/**
 	 *	The type parameters for templated types and operations.
@@ -160,6 +182,8 @@ public class GlotTables extends AbstractTables
 			Fragments.init();
 		}
 
+		public static final ParameterTypes _Integer___Integer = TypeUtil.createParameterTypes(OCLstdlibTables.Types._Integer, OCLstdlibTables.Types._Integer);
+		public static final ParameterTypes _String = TypeUtil.createParameterTypes(OCLstdlibTables.Types._String);
 
 		static {
 			Init.initEnd();
@@ -183,6 +207,12 @@ public class GlotTables extends AbstractTables
 			Init.initStart();
 			Parameters.init();
 		}
+
+		public static final ExecutorOperation _NamedElement__NameIsDefined = new ExecutorOperation("NameIsDefined", Parameters._String, Types._NamedElement,
+			0, TemplateParameters.EMPTY_LIST, null);
+
+		public static final ExecutorOperation _System__JoinVersion = new ExecutorOperation("JoinVersion", Parameters._Integer___Integer, Types._System,
+			0, TemplateParameters.EMPTY_LIST, null);
 
 		static {
 			Init.initEnd();
@@ -211,9 +241,10 @@ public class GlotTables extends AbstractTables
 
 		public static final ExecutorProperty _System__entities = new EcoreExecutorProperty(GlotPackage.Literals.SYSTEM__ENTITIES, Types._System, 0);
 		public static final ExecutorProperty _System__forms = new EcoreExecutorProperty(GlotPackage.Literals.SYSTEM__FORMS, Types._System, 1);
-		public static final ExecutorProperty _System__pages = new EcoreExecutorProperty(GlotPackage.Literals.SYSTEM__PAGES, Types._System, 2);
-		public static final ExecutorProperty _System__subversion = new EcoreExecutorProperty(GlotPackage.Literals.SYSTEM__SUBVERSION, Types._System, 3);
-		public static final ExecutorProperty _System__version = new EcoreExecutorProperty(GlotPackage.Literals.SYSTEM__VERSION, Types._System, 4);
+		public static final ExecutorProperty _System__fullVersion = new EcoreExecutorProperty(GlotPackage.Literals.SYSTEM__FULL_VERSION, Types._System, 2);
+		public static final ExecutorProperty _System__pages = new EcoreExecutorProperty(GlotPackage.Literals.SYSTEM__PAGES, Types._System, 3);
+		public static final ExecutorProperty _System__subversion = new EcoreExecutorProperty(GlotPackage.Literals.SYSTEM__SUBVERSION, Types._System, 4);
+		public static final ExecutorProperty _System__version = new EcoreExecutorProperty(GlotPackage.Literals.SYSTEM__VERSION, Types._System, 5);
 		static {
 			Init.initEnd();
 		}
@@ -275,7 +306,9 @@ public class GlotTables extends AbstractTables
 			TypeFragments.init();
 		}
 
-		private static final ExecutorOperation /*@NonNull*/ [] _NamedElement__NamedElement = {};
+		private static final ExecutorOperation /*@NonNull*/ [] _NamedElement__NamedElement = {
+			GlotTables.Operations._NamedElement__NameIsDefined /* NameIsDefined(String[1]) */
+		};
 		private static final ExecutorOperation /*@NonNull*/ [] _NamedElement__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
 			OCLstdlibTables.Operations._OclAny___eq_ /* _'='(OclSelf[?]) */,
@@ -303,8 +336,12 @@ public class GlotTables extends AbstractTables
 			OCLstdlibTables.Operations._OclElement__oclModelTypes /* oclModelTypes() */
 		};
 
-		private static final ExecutorOperation /*@NonNull*/ [] _System__System = {};
-		private static final ExecutorOperation /*@NonNull*/ [] _System__NamedElement = {};
+		private static final ExecutorOperation /*@NonNull*/ [] _System__System = {
+			GlotTables.Operations._System__JoinVersion /* JoinVersion(EInt[1],EInt[1]) */
+		};
+		private static final ExecutorOperation /*@NonNull*/ [] _System__NamedElement = {
+			GlotTables.Operations._NamedElement__NameIsDefined /* NameIsDefined(String[1]) */
+		};
 		private static final ExecutorOperation /*@NonNull*/ [] _System__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
 			OCLstdlibTables.Operations._OclAny___eq_ /* _'='(OclSelf[?]) */,
@@ -372,6 +409,7 @@ public class GlotTables extends AbstractTables
 		private static final ExecutorProperty /*@NonNull*/ [] _System = {
 			GlotTables.Properties._System__entities,
 			GlotTables.Properties._System__forms,
+			GlotTables.Properties._System__fullVersion,
 			GlotTables.Properties._NamedElement__name,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
@@ -468,5 +506,18 @@ public class GlotTables extends AbstractTables
 
 	private GlotTables() {
 		super(GlotPackage.eNS_URI);
+	}
+
+	/*
+	 * The EClasses whose instances should be cached to support allInstances().
+	 */
+	private static final EClass allInstancesEClasses /*@NonNull*/ [] = {
+		DataConcernPackage.Literals.ENTITY,
+		ContentConcernPackage.Literals.INDEX
+	};
+
+	@Override
+	public EClass /*@NonNull*/ [] basicGetAllInstancesClasses() {
+		return allInstancesEClasses;
 	}
 }

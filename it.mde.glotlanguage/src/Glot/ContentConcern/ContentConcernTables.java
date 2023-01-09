@@ -16,10 +16,12 @@ import Glot.DataConcern.DataConcernPackage;
 import Glot.FormConcern.FormConcernPackage;
 import Glot.GlotPackage;
 import Glot.GlotTables;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.ocl.pivot.ids.ClassId;
 import org.eclipse.ocl.pivot.ids.CollectionTypeId;
 import org.eclipse.ocl.pivot.ids.IdManager;
 import org.eclipse.ocl.pivot.ids.NsURIPackageId;
+import org.eclipse.ocl.pivot.ids.RootPackageId;
 import org.eclipse.ocl.pivot.ids.TypeId;
 import org.eclipse.ocl.pivot.internal.library.ecore.EcoreExecutorPackage;
 import org.eclipse.ocl.pivot.internal.library.ecore.EcoreExecutorProperty;
@@ -33,6 +35,8 @@ import org.eclipse.ocl.pivot.internal.library.executor.ExecutorStandardLibrary;
 import org.eclipse.ocl.pivot.internal.library.executor.ExecutorType;
 import org.eclipse.ocl.pivot.oclstdlib.OCLstdlibTables;
 import org.eclipse.ocl.pivot.utilities.AbstractTables;
+import org.eclipse.ocl.pivot.utilities.ValueUtil;
+import org.eclipse.ocl.pivot.values.IntegerValue;
 
 /**
  * ContentConcernTables provides the dispatch tables for the ContentConcern for use by the OCL dispatcher.
@@ -59,10 +63,13 @@ public class ContentConcernTables extends AbstractTables
 	/**
 	 *	Constants used by auto-generated code.
 	 */
+	public static final /*@NonInvalid*/ RootPackageId PACKid_$metamodel$ = IdManager.getRootPackageId("$metamodel$");
 	public static final /*@NonInvalid*/ NsURIPackageId PACKid_https_c_s_s_it_mde_glotlanguage = IdManager.getNsURIPackageId("https://it.mde.glotlanguage", null, GlotPackage.eINSTANCE);
 	public static final /*@NonInvalid*/ NsURIPackageId PACKid_https_c_s_s_it_mde_glotlanguage_s_contenConcern = IdManager.getNsURIPackageId("https://it.mde.glotlanguage/contenConcern", null, ContentConcernPackage.eINSTANCE);
 	public static final /*@NonInvalid*/ NsURIPackageId PACKid_https_c_s_s_it_mde_glotlanguage_s_dataConcern = IdManager.getNsURIPackageId("https://it.mde.glotlanguage/dataConcern", null, DataConcernPackage.eINSTANCE);
 	public static final /*@NonInvalid*/ NsURIPackageId PACKid_https_c_s_s_it_mde_glotlanguage_s_formConcern = IdManager.getNsURIPackageId("https://it.mde.glotlanguage/formConcern", null, FormConcernPackage.eINSTANCE);
+	public static final /*@NonInvalid*/ ClassId CLSSid_Class = ContentConcernTables.PACKid_$metamodel$.getClassId("Class", 0);
+	public static final /*@NonInvalid*/ ClassId CLSSid_DContent = ContentConcernTables.PACKid_https_c_s_s_it_mde_glotlanguage_s_contenConcern.getClassId("DContent", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_DForm = ContentConcernTables.PACKid_https_c_s_s_it_mde_glotlanguage_s_contenConcern.getClassId("DForm", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_Entity = ContentConcernTables.PACKid_https_c_s_s_it_mde_glotlanguage_s_dataConcern.getClassId("Entity", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_Feature = ContentConcernTables.PACKid_https_c_s_s_it_mde_glotlanguage_s_dataConcern.getClassId("Feature", 0);
@@ -71,12 +78,16 @@ public class ContentConcernTables extends AbstractTables
 	public static final /*@NonInvalid*/ ClassId CLSSid_Individual = ContentConcernTables.PACKid_https_c_s_s_it_mde_glotlanguage_s_contenConcern.getClassId("Individual", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_Page = ContentConcernTables.PACKid_https_c_s_s_it_mde_glotlanguage_s_contenConcern.getClassId("Page", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_System = ContentConcernTables.PACKid_https_c_s_s_it_mde_glotlanguage.getClassId("System", 0);
+	public static final /*@NonInvalid*/ IntegerValue INT_0 = ValueUtil.integerValueOf("0");
+	public static final /*@NonInvalid*/ IntegerValue INT_1 = ValueUtil.integerValueOf("1");
 	public static final /*@NonInvalid*/ CollectionTypeId BAG_CLSSid_Page = TypeId.BAG.getSpecializedId(ContentConcernTables.CLSSid_Page);
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_DForm = TypeId.ORDERED_SET.getSpecializedId(ContentConcernTables.CLSSid_DForm);
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Feature = TypeId.ORDERED_SET.getSpecializedId(ContentConcernTables.CLSSid_Feature);
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Index = TypeId.ORDERED_SET.getSpecializedId(ContentConcernTables.CLSSid_Index);
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Individual = TypeId.ORDERED_SET.getSpecializedId(ContentConcernTables.CLSSid_Individual);
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Page = TypeId.ORDERED_SET.getSpecializedId(ContentConcernTables.CLSSid_Page);
+	public static final /*@NonInvalid*/ CollectionTypeId SEQ_CLSSid_Index = TypeId.SEQUENCE.getSpecializedId(ContentConcernTables.CLSSid_Index);
+	public static final /*@NonInvalid*/ CollectionTypeId SET_CLSSid_Index = TypeId.SET.getSpecializedId(ContentConcernTables.CLSSid_Index);
 
 	/**
 	 *	The type parameters for templated types and operations.
@@ -258,10 +269,10 @@ public class ContentConcernTables extends AbstractTables
 		public static final ExecutorProperty _DForm__form = new EcoreExecutorProperty(ContentConcernPackage.Literals.DFORM__FORM, Types._DForm, 0);
 		public static final ExecutorProperty _DForm__Page__forms = new ExecutorPropertyWithImplementation("Page", Types._DForm, 1, new EcoreLibraryOppositeProperty(ContentConcernPackage.Literals.PAGE__FORMS));
 
-		public static final ExecutorProperty _Index__individualsList = new EcoreExecutorProperty(ContentConcernPackage.Literals.INDEX__INDIVIDUALS_LIST, Types._Index, 0);
+		public static final ExecutorProperty _Index__individuals = new EcoreExecutorProperty(ContentConcernPackage.Literals.INDEX__INDIVIDUALS, Types._Index, 0);
 		public static final ExecutorProperty _Index__Page__indexes = new ExecutorPropertyWithImplementation("Page", Types._Index, 1, new EcoreLibraryOppositeProperty(ContentConcernPackage.Literals.PAGE__INDEXES));
 
-		public static final ExecutorProperty _Individual__Index__individualsList = new ExecutorPropertyWithImplementation("Index", Types._Individual, 0, new EcoreLibraryOppositeProperty(ContentConcernPackage.Literals.INDEX__INDIVIDUALS_LIST));
+		public static final ExecutorProperty _Individual__Index__individuals = new ExecutorPropertyWithImplementation("Index", Types._Individual, 0, new EcoreLibraryOppositeProperty(ContentConcernPackage.Literals.INDEX__INDIVIDUALS));
 
 		public static final ExecutorProperty _Page__forms = new EcoreExecutorProperty(ContentConcernPackage.Literals.PAGE__FORMS, Types._Page, 0);
 		public static final ExecutorProperty _Page__indexes = new EcoreExecutorProperty(ContentConcernPackage.Literals.PAGE__INDEXES, Types._Page, 1);
@@ -377,7 +388,9 @@ public class ContentConcernTables extends AbstractTables
 		}
 
 		private static final ExecutorOperation /*@NonNull*/ [] _Content__Content = {};
-		private static final ExecutorOperation /*@NonNull*/ [] _Content__NamedElement = {};
+		private static final ExecutorOperation /*@NonNull*/ [] _Content__NamedElement = {
+			GlotTables.Operations._NamedElement__NameIsDefined /* NameIsDefined(String[1]) */
+		};
 		private static final ExecutorOperation /*@NonNull*/ [] _Content__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
 			OCLstdlibTables.Operations._OclAny___eq_ /* _'='(OclSelf[?]) */,
@@ -407,7 +420,9 @@ public class ContentConcernTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _DContent__DContent = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _DContent__Content = {};
-		private static final ExecutorOperation /*@NonNull*/ [] _DContent__NamedElement = {};
+		private static final ExecutorOperation /*@NonNull*/ [] _DContent__NamedElement = {
+			GlotTables.Operations._NamedElement__NameIsDefined /* NameIsDefined(String[1]) */
+		};
 		private static final ExecutorOperation /*@NonNull*/ [] _DContent__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
 			OCLstdlibTables.Operations._OclAny___eq_ /* _'='(OclSelf[?]) */,
@@ -437,7 +452,9 @@ public class ContentConcernTables extends AbstractTables
 
 		private static final ExecutorOperation /*@NonNull*/ [] _DForm__DForm = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _DForm__Content = {};
-		private static final ExecutorOperation /*@NonNull*/ [] _DForm__NamedElement = {};
+		private static final ExecutorOperation /*@NonNull*/ [] _DForm__NamedElement = {
+			GlotTables.Operations._NamedElement__NameIsDefined /* NameIsDefined(String[1]) */
+		};
 		private static final ExecutorOperation /*@NonNull*/ [] _DForm__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
 			OCLstdlibTables.Operations._OclAny___eq_ /* _'='(OclSelf[?]) */,
@@ -468,7 +485,9 @@ public class ContentConcernTables extends AbstractTables
 		private static final ExecutorOperation /*@NonNull*/ [] _Index__Index = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _Index__Content = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _Index__DContent = {};
-		private static final ExecutorOperation /*@NonNull*/ [] _Index__NamedElement = {};
+		private static final ExecutorOperation /*@NonNull*/ [] _Index__NamedElement = {
+			GlotTables.Operations._NamedElement__NameIsDefined /* NameIsDefined(String[1]) */
+		};
 		private static final ExecutorOperation /*@NonNull*/ [] _Index__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
 			OCLstdlibTables.Operations._OclAny___eq_ /* _'='(OclSelf[?]) */,
@@ -499,7 +518,9 @@ public class ContentConcernTables extends AbstractTables
 		private static final ExecutorOperation /*@NonNull*/ [] _Individual__Individual = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _Individual__Content = {};
 		private static final ExecutorOperation /*@NonNull*/ [] _Individual__DContent = {};
-		private static final ExecutorOperation /*@NonNull*/ [] _Individual__NamedElement = {};
+		private static final ExecutorOperation /*@NonNull*/ [] _Individual__NamedElement = {
+			GlotTables.Operations._NamedElement__NameIsDefined /* NameIsDefined(String[1]) */
+		};
 		private static final ExecutorOperation /*@NonNull*/ [] _Individual__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
 			OCLstdlibTables.Operations._OclAny___eq_ /* _'='(OclSelf[?]) */,
@@ -528,7 +549,9 @@ public class ContentConcernTables extends AbstractTables
 		};
 
 		private static final ExecutorOperation /*@NonNull*/ [] _Page__Page = {};
-		private static final ExecutorOperation /*@NonNull*/ [] _Page__NamedElement = {};
+		private static final ExecutorOperation /*@NonNull*/ [] _Page__NamedElement = {
+			GlotTables.Operations._NamedElement__NameIsDefined /* NameIsDefined(String[1]) */
+		};
 		private static final ExecutorOperation /*@NonNull*/ [] _Page__OclAny = {
 			OCLstdlibTables.Operations._OclAny___lt__gt_ /* _'<>'(OclSelf[?]) */,
 			OCLstdlibTables.Operations._OclAny___eq_ /* _'='(OclSelf[?]) */,
@@ -638,7 +661,7 @@ public class ContentConcernTables extends AbstractTables
 		private static final ExecutorProperty /*@NonNull*/ [] _Index = {
 			ContentConcernTables.Properties._DContent__entity,
 			ContentConcernTables.Properties._DContent__features,
-			ContentConcernTables.Properties._Index__individualsList,
+			ContentConcernTables.Properties._Index__individuals,
 			GlotTables.Properties._NamedElement__name,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents
@@ -753,5 +776,17 @@ public class ContentConcernTables extends AbstractTables
 
 	private ContentConcernTables() {
 		super(ContentConcernPackage.eNS_URI);
+	}
+
+	/*
+	 * The EClasses whose instances should be cached to support allInstances().
+	 */
+	private static final EClass allInstancesEClasses /*@NonNull*/ [] = {
+		ContentConcernPackage.Literals.INDEX
+	};
+
+	@Override
+	public EClass /*@NonNull*/ [] basicGetAllInstancesClasses() {
+		return allInstancesEClasses;
 	}
 }

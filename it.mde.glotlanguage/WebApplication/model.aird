@@ -3,11 +3,7 @@
   <viewpoint:DAnalysis uid="_tnyxMGpLEe2kXrvyhXFehw" version="15.0.0.202209061200">
     <semanticResources>model.ecore</semanticResources>
     <semanticResources>Blog.xmi</semanticResources>
-    <semanticResources>OldEcommerce.xmi</semanticResources>
-    <semanticResources>Ecommerce.xmi</semanticResources>
     <semanticResources>model.genmodel</semanticResources>
-    <semanticResources>model2.genmodel</semanticResources>
-    <semanticResources>model2.ecore</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_uW5S4GpLEe2kXrvyhXFehw">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_ucVzkGpLEe2kXrvyhXFehw" name="model" repPath="#_ubFPUGpLEe2kXrvyhXFehw" changeId="309a9dca-c870-441e-8c5b-eac945491bdf">

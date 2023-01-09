@@ -82,12 +82,12 @@ public class ContentConcernAdapterFactory extends AdapterFactoryImpl {
 				return createDFormAdapter();
 			}
 			@Override
-			public Adapter caseIndividual(Individual object) {
-				return createIndividualAdapter();
-			}
-			@Override
 			public Adapter caseIndex(Index object) {
 				return createIndexAdapter();
+			}
+			@Override
+			public Adapter caseIndividual(Individual object) {
+				return createIndividualAdapter();
 			}
 			@Override
 			public Adapter casePage(Page object) {

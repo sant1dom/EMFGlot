@@ -5,8 +5,6 @@ package Glot.FormConcern;
 import Glot.DataConcern.Entity;
 
 import Glot.NamedElement;
-
-import java.math.BigInteger;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -93,12 +91,12 @@ public interface Form extends NamedElement {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Elements Number</em>' attribute.
-	 * @see #setElementsNumber(BigInteger)
+	 * @see #setElementsNumber(int)
 	 * @see Glot.FormConcern.FormConcernPackage#getForm_ElementsNumber()
-	 * @model required="true" volatile="true" derived="true"
+	 * @model required="true" derived="true"
 	 * @generated
 	 */
-	BigInteger getElementsNumber();
+	int getElementsNumber();
 
 	/**
 	 * Sets the value of the '{@link Glot.FormConcern.Form#getElementsNumber <em>Elements Number</em>}' attribute.
@@ -108,6 +106,6 @@ public interface Form extends NamedElement {
 	 * @see #getElementsNumber()
 	 * @generated
 	 */
-	void setElementsNumber(BigInteger value);
+	void setElementsNumber(int value);
 
 } // Form

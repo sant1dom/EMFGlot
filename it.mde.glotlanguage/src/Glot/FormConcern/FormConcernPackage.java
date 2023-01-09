@@ -116,6 +116,24 @@ public interface FormConcernPackage extends EPackage {
 	int ELEMENT_FEATURE_COUNT = GlotPackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
+	 * The operation id for the '<em>Name Is Defined</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___NAME_IS_DEFINED__STRING = GlotPackage.NAMED_ELEMENT___NAME_IS_DEFINED__STRING;
+
+	/**
+	 * The operation id for the '<em>Name Not Empty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ELEMENT___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP = GlotPackage.NAMED_ELEMENT___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP;
+
+	/**
 	 * The number of operations of the '<em>Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -187,6 +205,24 @@ public interface FormConcernPackage extends EPackage {
 	 * @ordered
 	 */
 	int FORM_FEATURE_COUNT = GlotPackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Name Is Defined</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM___NAME_IS_DEFINED__STRING = GlotPackage.NAMED_ELEMENT___NAME_IS_DEFINED__STRING;
+
+	/**
+	 * The operation id for the '<em>Name Not Empty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FORM___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP = GlotPackage.NAMED_ELEMENT___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Form</em>' class.

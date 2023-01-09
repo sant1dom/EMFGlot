@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated glotlanguage2 -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="Glot2.presentation.Glot2ModelWizardID"
+            name="%_UI_Glot2ModelWizard_label"
+            class="Glot2.presentation.Glot2ModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/Glot2ModelFile.gif">
+         <description>%_UI_Glot2ModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated glotlanguage2 -->
+      <editor
+            id="Glot2.presentation.Glot2EditorID"
+            name="%_UI_Glot2Editor_label"
+            icon="icons/full/obj16/Glot2ModelFile.gif"
+            extensions="glot2"
+            class="Glot2.presentation.Glot2Editor"
+            contributorClass="Glot2.presentation.Glot2ActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated glotlanguage2 -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="Glot2.ContentConcern.presentation.ContentConcernModelWizardID"
+            name="%_UI_ContentConcernModelWizard_label"
+            class="Glot2.ContentConcern.presentation.ContentConcernModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ContentConcernModelFile.gif">
+         <description>%_UI_ContentConcernModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated glotlanguage2 -->
+      <editor
+            id="Glot2.ContentConcern.presentation.ContentConcernEditorID"
+            name="%_UI_ContentConcernEditor_label"
+            icon="icons/full/obj16/ContentConcernModelFile.gif"
+            extensions="contentconcern"
+            class="Glot2.ContentConcern.presentation.ContentConcernEditor"
+            contributorClass="Glot2.ContentConcern.presentation.ContentConcernActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated glotlanguage2 -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="Glot2.DataConcern.presentation.DataConcernModelWizardID"
+            name="%_UI_DataConcernModelWizard_label"
+            class="Glot2.DataConcern.presentation.DataConcernModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/DataConcernModelFile.gif">
+         <description>%_UI_DataConcernModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated glotlanguage2 -->
+      <editor
+            id="Glot2.DataConcern.presentation.DataConcernEditorID"
+            name="%_UI_DataConcernEditor_label"
+            icon="icons/full/obj16/DataConcernModelFile.gif"
+            extensions="dataconcern"
+            class="Glot2.DataConcern.presentation.DataConcernEditor"
+            contributorClass="Glot2.DataConcern.presentation.DataConcernActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated glotlanguage2 -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="Glot2.FormConcern.presentation.FormConcernModelWizardID"
+            name="%_UI_FormConcernModelWizard_label"
+            class="Glot2.FormConcern.presentation.FormConcernModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/FormConcernModelFile.gif">
+         <description>%_UI_FormConcernModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated glotlanguage2 -->
+      <editor
+            id="Glot2.FormConcern.presentation.FormConcernEditorID"
+            name="%_UI_FormConcernEditor_label"
+            icon="icons/full/obj16/FormConcernModelFile.gif"
+            extensions="formconcern"
+            class="Glot2.FormConcern.presentation.FormConcernEditor"
+            contributorClass="Glot2.FormConcern.presentation.FormConcernActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

@@ -5,6 +5,8 @@ package Glot.ContentConcern;
 import Glot.DataConcern.Entity;
 import Glot.DataConcern.Feature;
 
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -22,6 +24,7 @@ import org.eclipse.emf.common.util.EList;
  *
  * @see Glot.ContentConcern.ContentConcernPackage#getDContent()
  * @model abstract="true"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='OnlyFeaturesFromRef'"
  * @generated
  */
 public interface DContent extends Content {
@@ -58,5 +61,13 @@ public interface DContent extends Content {
 	 * @generated
 	 */
 	EList<Feature> getFeatures();
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='entity.features-&gt;includesAll(features)'"
+	 * @generated
+	 */
+	boolean OnlyFeaturesFromRef(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // DContent

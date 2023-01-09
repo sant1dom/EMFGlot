@@ -2,8 +2,8 @@
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
   <viewpoint:DAnalysis uid="_wVKYEJA3Ee2ciq5rVoTIpg" selectedViews="_wWqM4JA3Ee2ciq5rVoTIpg _giOOUJA4Ee2ciq5rVoTIpg _giUU8JA4Ee2ciq5rVoTIpg _gi7Y8JA4Ee2ciq5rVoTIpg" version="15.0.0.202209061200">
     <semanticResources>glotlanguage2.ecore</semanticResources>
-    <semanticResources>glotlanguage2.genmodel</semanticResources>
     <semanticResources>Ecomerce2.xmi</semanticResources>
+    <semanticResources>glotlanguage2.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_wWqM4JA3Ee2ciq5rVoTIpg">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
       <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_wXG40JA3Ee2ciq5rVoTIpg" name="glotlanguage2" repPath="#_wXEckJA3Ee2ciq5rVoTIpg" changeId="dbb8d7db-2df5-4ca6-a8ca-a6da55c5692d">

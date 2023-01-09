@@ -11,6 +11,7 @@ import Glot.ContentConcern.Index;
 import Glot.ContentConcern.Individual;
 import Glot.ContentConcern.Page;
 
+import Glot.ContentConcern.util.ContentConcernValidator;
 import Glot.DataConcern.DataConcernPackage;
 
 import Glot.DataConcern.impl.DataConcernPackageImpl;
@@ -24,9 +25,12 @@ import Glot.GlotPackage;
 import Glot.impl.GlotPackageImpl;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -144,6 +148,15 @@ public class ContentConcernPackageImpl extends EPackageImpl implements ContentCo
 		theDataConcernPackage.initializePackageContents();
 		theFormConcernPackage.initializePackageContents();
 
+		// Register package validator
+		EValidator.Registry.INSTANCE.put
+			(theContentConcernPackage,
+			 new EValidator.Descriptor() {
+				 public EValidator getEValidator() {
+					 return ContentConcernValidator.INSTANCE;
+				 }
+			 });
+
 		// Mark meta-data to indicate it can't be changed
 		theContentConcernPackage.freeze();
 
@@ -193,6 +206,15 @@ public class ContentConcernPackageImpl extends EPackageImpl implements ContentCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getDContent__OnlyFeaturesFromRef__DiagnosticChain_Map() {
+		return dContentEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDForm() {
 		return dFormEClass;
 	}
@@ -220,6 +242,15 @@ public class ContentConcernPackageImpl extends EPackageImpl implements ContentCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EOperation getIndividual__SameEntityAsParent__DiagnosticChain_Map() {
+		return individualEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getIndex() {
 		return indexEClass;
 	}
@@ -229,8 +260,17 @@ public class ContentConcernPackageImpl extends EPackageImpl implements ContentCo
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getIndex_IndividualsList() {
+	public EReference getIndex_Individuals() {
 		return (EReference)indexEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getIndex__NoDuplicates__DiagnosticChain_Map() {
+		return indexEClass.getEOperations().get(0);
 	}
 
 	/**
@@ -302,14 +342,17 @@ public class ContentConcernPackageImpl extends EPackageImpl implements ContentCo
 		dContentEClass = createEClass(DCONTENT);
 		createEReference(dContentEClass, DCONTENT__ENTITY);
 		createEReference(dContentEClass, DCONTENT__FEATURES);
+		createEOperation(dContentEClass, DCONTENT___ONLY_FEATURES_FROM_REF__DIAGNOSTICCHAIN_MAP);
 
 		dFormEClass = createEClass(DFORM);
 		createEReference(dFormEClass, DFORM__FORM);
 
-		individualEClass = createEClass(INDIVIDUAL);
-
 		indexEClass = createEClass(INDEX);
-		createEReference(indexEClass, INDEX__INDIVIDUALS_LIST);
+		createEReference(indexEClass, INDEX__INDIVIDUALS);
+		createEOperation(indexEClass, INDEX___NO_DUPLICATES__DIAGNOSTICCHAIN_MAP);
+
+		individualEClass = createEClass(INDIVIDUAL);
+		createEOperation(individualEClass, INDIVIDUAL___SAME_ENTITY_AS_PARENT__DIAGNOSTICCHAIN_MAP);
 
 		pageEClass = createEClass(PAGE);
 		createEReference(pageEClass, PAGE__INDEXES);
@@ -353,8 +396,8 @@ public class ContentConcernPackageImpl extends EPackageImpl implements ContentCo
 		contentEClass.getESuperTypes().add(theGlotPackage.getNamedElement());
 		dContentEClass.getESuperTypes().add(this.getContent());
 		dFormEClass.getESuperTypes().add(this.getContent());
-		individualEClass.getESuperTypes().add(this.getDContent());
 		indexEClass.getESuperTypes().add(this.getDContent());
+		individualEClass.getESuperTypes().add(this.getDContent());
 		pageEClass.getESuperTypes().add(theGlotPackage.getNamedElement());
 
 		// Initialize classes, features, and operations; add parameters
@@ -364,18 +407,130 @@ public class ContentConcernPackageImpl extends EPackageImpl implements ContentCo
 		initEReference(getDContent_Entity(), theDataConcernPackage.getEntity(), null, "entity", null, 1, 1, DContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDContent_Features(), theDataConcernPackage.getFeature(), null, "features", null, 1, -1, DContent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		EOperation op = initEOperation(getDContent__OnlyFeaturesFromRef__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "OnlyFeaturesFromRef", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(dFormEClass, DForm.class, "DForm", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getDForm_Form(), theFormConcernPackage.getForm(), null, "form", null, 1, 1, DForm.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(indexEClass, Index.class, "Index", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getIndex_Individuals(), this.getIndividual(), null, "individuals", null, 0, -1, Index.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getIndex__NoDuplicates__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "NoDuplicates", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(individualEClass, Individual.class, "Individual", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(indexEClass, Index.class, "Index", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getIndex_IndividualsList(), this.getIndividual(), null, "individualsList", null, 1, -1, Index.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		op = initEOperation(getIndividual__SameEntityAsParent__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "SameEntityAsParent", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(pageEClass, Page.class, "Page", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPage_Indexes(), this.getIndex(), null, "indexes", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPage_Forms(), this.getDForm(), null, "forms", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPage_Links(), this.getPage(), null, "links", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Create annotations
+		// http://www.eclipse.org/emf/2002/Ecore
+		createEcoreAnnotations();
+		// http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
+		createPivotAnnotations();
+		// http://www.eclipse.org/OCL/Collection
+		createCollectionAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createEcoreAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore";
+		addAnnotation
+		  (this,
+		   source,
+		   new String[] {
+		   });
+		addAnnotation
+		  (dContentEClass,
+		   source,
+		   new String[] {
+			   "constraints", "OnlyFeaturesFromRef"
+		   });
+		addAnnotation
+		  (indexEClass,
+		   source,
+		   new String[] {
+			   "constraints", "NoDuplicates"
+		   });
+		addAnnotation
+		  (individualEClass,
+		   source,
+		   new String[] {
+			   "constraints", "SameEntityAsParent"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createPivotAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
+		addAnnotation
+		  (getDContent__OnlyFeaturesFromRef__DiagnosticChain_Map(),
+		   source,
+		   new String[] {
+			   "body", "entity.features->includesAll(features)"
+		   });
+		addAnnotation
+		  (getIndex__NoDuplicates__DiagnosticChain_Map(),
+		   source,
+		   new String[] {
+			   "body", "Index.allInstances()->select(name=self.name)->size()=1"
+		   });
+		addAnnotation
+		  (getIndividual__SameEntityAsParent__DiagnosticChain_Map(),
+		   source,
+		   new String[] {
+			   "body", "Index.allInstances()->select(a | a.individuals->includes(self))->asSequence()->first().entity = self.entity"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/OCL/Collection</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createCollectionAnnotations() {
+		String source = "http://www.eclipse.org/OCL/Collection";
+		addAnnotation
+		  (getIndex_Individuals(),
+		   source,
+		   new String[] {
+			   "nullFree", "false"
+		   });
 	}
 
 } //ContentConcernPackageImpl

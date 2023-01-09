@@ -8,6 +8,8 @@ import Glot.DataConcern.Entity;
 
 import Glot.FormConcern.Form;
 
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -24,10 +26,11 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link Glot.System#getEntities <em>Entities</em>}</li>
  *   <li>{@link Glot.System#getForms <em>Forms</em>}</li>
  *   <li>{@link Glot.System#getPages <em>Pages</em>}</li>
+ *   <li>{@link Glot.System#getFullVersion <em>Full Version</em>}</li>
  * </ul>
  *
  * @see Glot.GlotPackage#getSystem()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='SubVersionBetweenZeroAndNine'"
  * @generated
  */
 public interface System extends NamedElement {
@@ -110,5 +113,44 @@ public interface System extends NamedElement {
 	 * @generated
 	 */
 	EList<Page> getPages();
+
+	/**
+	 * Returns the value of the '<em><b>Full Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Full Version</em>' attribute.
+	 * @see #setFullVersion(String)
+	 * @see Glot.GlotPackage#getSystem_FullVersion()
+	 * @model required="true" derived="true"
+	 * @generated
+	 */
+	String getFullVersion();
+
+	/**
+	 * Sets the value of the '{@link Glot.System#getFullVersion <em>Full Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Full Version</em>' attribute.
+	 * @see #getFullVersion()
+	 * @generated
+	 */
+	void setFullVersion(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" versionRequired="true" subversionRequired="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='(version.toString().concat(\'.\')).concat(subversion.toString())'"
+	 * @generated
+	 */
+	String JoinVersion(int version, int subversion);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='Tuple {\n\tmessage : String = \'Subversion should be between zero and nine\',\n\tstatus : Boolean = self.subversion &lt; 10 and self.subversion &gt;= 0\n}.status'"
+	 * @generated
+	 */
+	boolean SubVersionBetweenZeroAndNine(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // System

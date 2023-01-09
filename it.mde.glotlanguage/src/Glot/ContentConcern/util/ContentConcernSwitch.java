@@ -91,21 +91,21 @@ public class ContentConcernSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ContentConcernPackage.INDIVIDUAL: {
-				Individual individual = (Individual)theEObject;
-				T result = caseIndividual(individual);
-				if (result == null) result = caseDContent(individual);
-				if (result == null) result = caseContent(individual);
-				if (result == null) result = caseNamedElement(individual);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ContentConcernPackage.INDEX: {
 				Index index = (Index)theEObject;
 				T result = caseIndex(index);
 				if (result == null) result = caseDContent(index);
 				if (result == null) result = caseContent(index);
 				if (result == null) result = caseNamedElement(index);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case ContentConcernPackage.INDIVIDUAL: {
+				Individual individual = (Individual)theEObject;
+				T result = caseIndividual(individual);
+				if (result == null) result = caseDContent(individual);
+				if (result == null) result = caseContent(individual);
+				if (result == null) result = caseNamedElement(individual);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

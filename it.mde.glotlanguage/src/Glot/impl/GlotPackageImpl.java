@@ -18,11 +18,15 @@ import Glot.GlotFactory;
 import Glot.GlotPackage;
 import Glot.NamedElement;
 
+import Glot.util.GlotValidator;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -112,6 +116,15 @@ public class GlotPackageImpl extends EPackageImpl implements GlotPackage {
 		theDataConcernPackage.initializePackageContents();
 		theFormConcernPackage.initializePackageContents();
 
+		// Register package validator
+		EValidator.Registry.INSTANCE.put
+			(theGlotPackage,
+			 new EValidator.Descriptor() {
+				 public EValidator getEValidator() {
+					 return GlotValidator.INSTANCE;
+				 }
+			 });
+
 		// Mark meta-data to indicate it can't be changed
 		theGlotPackage.freeze();
 
@@ -136,6 +149,24 @@ public class GlotPackageImpl extends EPackageImpl implements GlotPackage {
 	 */
 	public EAttribute getNamedElement_Name() {
 		return (EAttribute)namedElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getNamedElement__NameIsDefined__String() {
+		return namedElementEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getNamedElement__NameNotEmpty__DiagnosticChain_Map() {
+		return namedElementEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -197,6 +228,33 @@ public class GlotPackageImpl extends EPackageImpl implements GlotPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getSystem_FullVersion() {
+		return (EAttribute)systemEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSystem__JoinVersion__int_int() {
+		return systemEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getSystem__SubVersionBetweenZeroAndNine__DiagnosticChain_Map() {
+		return systemEClass.getEOperations().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public GlotFactory getGlotFactory() {
 		return (GlotFactory)getEFactoryInstance();
 	}
@@ -222,6 +280,8 @@ public class GlotPackageImpl extends EPackageImpl implements GlotPackage {
 		// Create classes and their features
 		namedElementEClass = createEClass(NAMED_ELEMENT);
 		createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
+		createEOperation(namedElementEClass, NAMED_ELEMENT___NAME_IS_DEFINED__STRING);
+		createEOperation(namedElementEClass, NAMED_ELEMENT___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP);
 
 		systemEClass = createEClass(SYSTEM);
 		createEAttribute(systemEClass, SYSTEM__VERSION);
@@ -229,6 +289,9 @@ public class GlotPackageImpl extends EPackageImpl implements GlotPackage {
 		createEReference(systemEClass, SYSTEM__ENTITIES);
 		createEReference(systemEClass, SYSTEM__FORMS);
 		createEReference(systemEClass, SYSTEM__PAGES);
+		createEAttribute(systemEClass, SYSTEM__FULL_VERSION);
+		createEOperation(systemEClass, SYSTEM___JOIN_VERSION__INT_INT);
+		createEOperation(systemEClass, SYSTEM___SUB_VERSION_BETWEEN_ZERO_AND_NINE__DIAGNOSTICCHAIN_MAP);
 	}
 
 	/**
@@ -275,15 +338,108 @@ public class GlotPackageImpl extends EPackageImpl implements GlotPackage {
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		EOperation op = initEOperation(getNamedElement__NameIsDefined__String(), ecorePackage.getEBoolean(), "NameIsDefined", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEString(), "name", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getNamedElement__NameNotEmpty__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "NameNotEmpty", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(systemEClass, Glot.System.class, "System", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSystem_Version(), ecorePackage.getEInt(), "version", null, 1, 1, Glot.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSystem_Subversion(), ecorePackage.getEInt(), "subversion", null, 1, 1, Glot.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSystem_Entities(), theDataConcernPackage.getEntity(), null, "entities", null, 0, -1, Glot.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSystem_Forms(), theFormConcernPackage.getForm(), null, "forms", null, 0, -1, Glot.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSystem_Pages(), theContentConcernPackage.getPage(), null, "pages", null, 0, -1, Glot.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSystem_FullVersion(), ecorePackage.getEString(), "fullVersion", null, 1, 1, Glot.System.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		op = initEOperation(getSystem__JoinVersion__int_int(), ecorePackage.getEString(), "JoinVersion", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "version", 1, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEInt(), "subversion", 1, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getSystem__SubVersionBetweenZeroAndNine__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "SubVersionBetweenZeroAndNine", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// http://www.eclipse.org/emf/2002/Ecore
+		createEcoreAnnotations();
+		// http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
+		createPivotAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createEcoreAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore";
+		addAnnotation
+		  (this,
+		   source,
+		   new String[] {
+		   });
+		addAnnotation
+		  (namedElementEClass,
+		   source,
+		   new String[] {
+			   "constraints", "NameNotEmpty"
+		   });
+		addAnnotation
+		  (systemEClass,
+		   source,
+		   new String[] {
+			   "constraints", "SubVersionBetweenZeroAndNine"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createPivotAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
+		addAnnotation
+		  (getNamedElement__NameIsDefined__String(),
+		   source,
+		   new String[] {
+			   "body", "name.oclIsUndefined() or name = \'\'"
+		   });
+		addAnnotation
+		  (getNamedElement__NameNotEmpty__DiagnosticChain_Map(),
+		   source,
+		   new String[] {
+			   "body", "Tuple {\n\tmessage : String = \'Expected a name\',\n\tstatus : Boolean = not NameIsDefined(self.name)\n}.status"
+		   });
+		addAnnotation
+		  (getSystem__JoinVersion__int_int(),
+		   source,
+		   new String[] {
+			   "body", "(version.toString().concat(\'.\')).concat(subversion.toString())"
+		   });
+		addAnnotation
+		  (getSystem__SubVersionBetweenZeroAndNine__DiagnosticChain_Map(),
+		   source,
+		   new String[] {
+			   "body", "Tuple {\n\tmessage : String = \'Subversion should be between zero and nine\',\n\tstatus : Boolean = self.subversion < 10 and self.subversion >= 0\n}.status"
+		   });
 	}
 
 } //GlotPackageImpl

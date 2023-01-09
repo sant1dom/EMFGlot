@@ -4,6 +4,8 @@ package Glot.DataConcern;
 
 import Glot.NamedElement;
 
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -16,11 +18,10 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link Glot.DataConcern.Entity#getFeatures <em>Features</em>}</li>
- *   <li>{@link Glot.DataConcern.Entity#getTest <em>Test</em>}</li>
  * </ul>
  *
  * @see Glot.DataConcern.DataConcernPackage#getEntity()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='AtLeastOnePK'"
  * @generated
  */
 public interface Entity extends NamedElement {
@@ -37,25 +38,19 @@ public interface Entity extends NamedElement {
 	EList<Feature> getFeatures();
 
 	/**
-	 * Returns the value of the '<em><b>Test</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Test</em>' attribute.
-	 * @see #setTest(int)
-	 * @see Glot.DataConcern.DataConcernPackage#getEntity_Test()
-	 * @model required="true" volatile="true" derived="true"
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='Entity.allInstances()-&gt;select(name=self.name)-&gt;size()=1'"
 	 * @generated
 	 */
-	int getTest();
+	boolean NoDuplicates(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 	/**
-	 * Sets the value of the '{@link Glot.DataConcern.Entity#getTest <em>Test</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Test</em>' attribute.
-	 * @see #getTest()
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='features-&gt;select(a | a.oclIsKindOf(Attribute) and a.oclAsType(Attribute).isPrimaryKey=true)-&gt;size() &gt; 0'"
 	 * @generated
 	 */
-	void setTest(int value);
+	boolean AtLeastOnePK(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // Entity

@@ -57,8 +57,8 @@ public class ContentConcernFactoryImpl extends EFactoryImpl implements ContentCo
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case ContentConcernPackage.DFORM: return createDForm();
-			case ContentConcernPackage.INDIVIDUAL: return createIndividual();
 			case ContentConcernPackage.INDEX: return createIndex();
+			case ContentConcernPackage.INDIVIDUAL: return createIndividual();
 			case ContentConcernPackage.PAGE: return createPage();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");

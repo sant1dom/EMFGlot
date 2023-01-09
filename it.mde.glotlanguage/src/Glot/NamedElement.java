@@ -2,6 +2,8 @@
  */
 package Glot;
 
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -17,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see Glot.GlotPackage#getNamedElement()
- * @model
+ * @model annotation="http://www.eclipse.org/emf/2002/Ecore constraints='NameNotEmpty'"
  * @generated
  */
 public interface NamedElement extends EObject {
@@ -42,5 +44,22 @@ public interface NamedElement extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model required="true" nameRequired="true"
+	 *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='name.oclIsUndefined() or name = \'\''"
+	 * @generated
+	 */
+	boolean NameIsDefined(String name);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @model annotation="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot body='Tuple {\n\tmessage : String = \'Expected a name\',\n\tstatus : Boolean = not NameIsDefined(self.name)\n}.status'"
+	 * @generated
+	 */
+	boolean NameNotEmpty(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // NamedElement

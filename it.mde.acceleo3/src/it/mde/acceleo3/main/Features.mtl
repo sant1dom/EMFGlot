@@ -2,9 +2,9 @@
 [module Features('https://it.mde.glotlanguage2')]
 
 
-[template public generateFeature( aFeature: Feature)] 
-[if (aFeature.oclIsKindOf(Attribute))][let var : Attribute = aFeature.oclAsType(Attribute)][var.type/][/let][else][let var : Reference = aFeature.oclAsType(Reference)][var.foreignKey.features->selectByKind(Attribute)->select(isPrimaryKey=true).type/][/let][/if]
-[/template] 
+[template public generateFeature(aFeature: Feature) post (trim())] 
+[if (aFeature.oclIsKindOf(Attribute))][let var : Attribute = aFeature.oclAsType(Attribute)][type(var)/][/let][else][let var : Reference = aFeature.oclAsType(Reference)] [type(var.foreignKey.features->selectByKind(Attribute)->select(isPrimaryKey=true)->first())/][/let][/if]
+[/template]
 
 [template public foreignKey( aFeature: Feature)] 
 [if (aFeature.oclIsKindOf(Reference))][let var : Reference = aFeature.oclAsType(Reference)]FOREIGN KEY ([var.name/]) REFERENCES [var.foreignKey.name/]([var.foreignKey.features->selectByKind(Attribute)->select(isPrimaryKey=true).name/])[/let][/if]
@@ -12,7 +12,22 @@
 
 
 
-[template public AAA( aFeature: Feature)] 
-[if (aFeature.oclIsKindOf(Reference))][let var : Reference = aFeature.oclAsType(Reference)][var.foreignKey.features->selectByKind(Attribute)->select(isPrimaryKey=true).type/]FOREIGN KEY[/let]
+[template public type( var: Attribute)] 
+[if (var.type=_DataType::int)]
+INT
+[elseif (var.type=_DataType::String)]
+VARCHAR(255)
+[elseif (var.type=_DataType::text)]
+TEXT
+[elseif (var.type=_DataType::boolean)]
+BOOL
+[elseif (var.type=_DataType::Date)]
+DATE
+[elseif (var.type=_DataType::double)]
+DOUBLE
+[elseif (var.type=_DataType::File)]
+BLOB
+[else]
+[var.type/]
 [/if]
 [/template] 

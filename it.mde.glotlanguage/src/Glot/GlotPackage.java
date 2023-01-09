@@ -4,6 +4,7 @@ package Glot;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -21,6 +22,7 @@ import org.eclipse.emf.ecore.EReference;
  * <!-- end-user-doc -->
  * @see Glot.GlotFactory
  * @model kind="package"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore"
  * @generated
  */
 public interface GlotPackage extends EPackage {
@@ -85,13 +87,31 @@ public interface GlotPackage extends EPackage {
 	int NAMED_ELEMENT_FEATURE_COUNT = 1;
 
 	/**
+	 * The operation id for the '<em>Name Is Defined</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT___NAME_IS_DEFINED__STRING = 0;
+
+	/**
+	 * The operation id for the '<em>Name Not Empty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP = 1;
+
+	/**
 	 * The number of operations of the '<em>Named Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NAMED_ELEMENT_OPERATION_COUNT = 0;
+	int NAMED_ELEMENT_OPERATION_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link Glot.impl.SystemImpl <em>System</em>}' class.
@@ -158,13 +178,58 @@ public interface GlotPackage extends EPackage {
 	int SYSTEM__PAGES = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Full Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM__FULL_VERSION = NAMED_ELEMENT_FEATURE_COUNT + 5;
+
+	/**
 	 * The number of structural features of the '<em>System</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
+	int SYSTEM_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 6;
+
+	/**
+	 * The operation id for the '<em>Name Is Defined</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM___NAME_IS_DEFINED__STRING = NAMED_ELEMENT___NAME_IS_DEFINED__STRING;
+
+	/**
+	 * The operation id for the '<em>Name Not Empty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP = NAMED_ELEMENT___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>Join Version</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM___JOIN_VERSION__INT_INT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>Sub Version Between Zero And Nine</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SYSTEM___SUB_VERSION_BETWEEN_ZERO_AND_NINE__DIAGNOSTICCHAIN_MAP = NAMED_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>System</em>' class.
@@ -173,7 +238,7 @@ public interface GlotPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SYSTEM_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int SYSTEM_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 2;
 
 
 	/**
@@ -196,6 +261,26 @@ public interface GlotPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getNamedElement_Name();
+
+	/**
+	 * Returns the meta object for the '{@link Glot.NamedElement#NameIsDefined(java.lang.String) <em>Name Is Defined</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Name Is Defined</em>' operation.
+	 * @see Glot.NamedElement#NameIsDefined(java.lang.String)
+	 * @generated
+	 */
+	EOperation getNamedElement__NameIsDefined__String();
+
+	/**
+	 * Returns the meta object for the '{@link Glot.NamedElement#NameNotEmpty(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Name Not Empty</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Name Not Empty</em>' operation.
+	 * @see Glot.NamedElement#NameNotEmpty(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getNamedElement__NameNotEmpty__DiagnosticChain_Map();
 
 	/**
 	 * Returns the meta object for class '{@link Glot.System <em>System</em>}'.
@@ -263,6 +348,37 @@ public interface GlotPackage extends EPackage {
 	EReference getSystem_Pages();
 
 	/**
+	 * Returns the meta object for the attribute '{@link Glot.System#getFullVersion <em>Full Version</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Full Version</em>'.
+	 * @see Glot.System#getFullVersion()
+	 * @see #getSystem()
+	 * @generated
+	 */
+	EAttribute getSystem_FullVersion();
+
+	/**
+	 * Returns the meta object for the '{@link Glot.System#JoinVersion(int, int) <em>Join Version</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Join Version</em>' operation.
+	 * @see Glot.System#JoinVersion(int, int)
+	 * @generated
+	 */
+	EOperation getSystem__JoinVersion__int_int();
+
+	/**
+	 * Returns the meta object for the '{@link Glot.System#SubVersionBetweenZeroAndNine(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Sub Version Between Zero And Nine</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>Sub Version Between Zero And Nine</em>' operation.
+	 * @see Glot.System#SubVersionBetweenZeroAndNine(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getSystem__SubVersionBetweenZeroAndNine__DiagnosticChain_Map();
+
+	/**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -302,6 +418,22 @@ public interface GlotPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Name Is Defined</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NAMED_ELEMENT___NAME_IS_DEFINED__STRING = eINSTANCE.getNamedElement__NameIsDefined__String();
+
+		/**
+		 * The meta object literal for the '<em><b>Name Not Empty</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation NAMED_ELEMENT___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP = eINSTANCE.getNamedElement__NameNotEmpty__DiagnosticChain_Map();
 
 		/**
 		 * The meta object literal for the '{@link Glot.impl.SystemImpl <em>System</em>}' class.
@@ -352,6 +484,30 @@ public interface GlotPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SYSTEM__PAGES = eINSTANCE.getSystem_Pages();
+
+		/**
+		 * The meta object literal for the '<em><b>Full Version</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SYSTEM__FULL_VERSION = eINSTANCE.getSystem_FullVersion();
+
+		/**
+		 * The meta object literal for the '<em><b>Join Version</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SYSTEM___JOIN_VERSION__INT_INT = eINSTANCE.getSystem__JoinVersion__int_int();
+
+		/**
+		 * The meta object literal for the '<em><b>Sub Version Between Zero And Nine</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation SYSTEM___SUB_VERSION_BETWEEN_ZERO_AND_NINE__DIAGNOSTICCHAIN_MAP = eINSTANCE.getSystem__SubVersionBetweenZeroAndNine__DiagnosticChain_Map();
 
 	}
 

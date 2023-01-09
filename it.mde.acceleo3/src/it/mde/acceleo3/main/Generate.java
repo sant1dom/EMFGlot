@@ -27,7 +27,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
-import Glot.GlotPackage;
+import Glot2.Glot2Package;
 
 /**
  * Entry point of the 'Generate' generation module.
@@ -386,14 +386,9 @@ public class Generate extends AbstractAcceleoGenerator {
      *            The resource set which registry has to be updated.
      * 
      */
-    /**
-     *
-     */
     @Override
     public void registerResourceFactories(ResourceSet resourceSet) {
-    	EPackage.Registry.INSTANCE.put(GlotPackage.eNS_URI , GlotPackage.eINSTANCE);
+    	EPackage.Registry.INSTANCE.put(Glot2Package.eNS_URI , Glot2Package.eINSTANCE);
     	Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
-    
     }
-    
 }

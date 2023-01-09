@@ -308,13 +308,15 @@ public class FormConcernPackageImpl extends EPackageImpl implements FormConcernP
 		initEAttribute(getForm_Method(), this.get_MethodType(), "method", null, 0, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getForm_Elements(), this.getElement(), null, "elements", null, 0, -1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getForm_Entity(), theDataConcernPackage.getEntity(), null, "entity", null, 0, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getForm_ElementsNumber(), ecorePackage.getEBigInteger(), "elementsNumber", null, 1, 1, Form.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+		initEAttribute(getForm_ElementsNumber(), ecorePackage.getEInt(), "elementsNumber", null, 1, 1, Form.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(_MethodTypeEEnum, _MethodType.class, "_MethodType");
 		addEEnumLiteral(_MethodTypeEEnum, _MethodType.POST);
 		addEEnumLiteral(_MethodTypeEEnum, _MethodType.GET);
+		addEEnumLiteral(_MethodTypeEEnum, _MethodType.PUT);
 		addEEnumLiteral(_MethodTypeEEnum, _MethodType.DELETE);
+		addEEnumLiteral(_MethodTypeEEnum, _MethodType.PATCH);
 
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/Ecore

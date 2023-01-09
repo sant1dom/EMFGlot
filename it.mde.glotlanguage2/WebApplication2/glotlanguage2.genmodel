@@ -1,12 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/it.mde.glotlanguage2/src-gen" creationIcons="false"
-    editDirectory="/it.mde.glotlanguage2.edit/src-gen" editorDirectory="/it.mde.glotlanguage2.editor/src-gen"
-    modelPluginID="it.mde.glotlanguage2" modelName="Glotlanguage2" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
-    copyrightFields="false" operationReflection="true" importOrganizing="true">
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/it.mde.glotlanguage2/src" modelPluginID="it.mde.glotlanguage2"
+    modelName="Glotlanguage2" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
   <foreignModel>glotlanguage2.ecore</foreignModel>
-  <testsDirectory xsi:nil="true"/>
-  <genPackages prefix="Glotlanguage2" basePackage="it.mde" disposableProviderFactory="true"
-      ecorePackage="glotlanguage2.ecore#/"/>
+  <genPackages prefix="Glot2" disposableProviderFactory="true" ecorePackage="glotlanguage2.ecore#/">
+    <genClasses ecoreClass="glotlanguage2.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute glotlanguage2.ecore#//NamedElement/name"/>
+      <genOperations ecoreOperation="glotlanguage2.ecore#//NamedElement/NameIsDefined">
+        <genParameters ecoreParameter="glotlanguage2.ecore#//NamedElement/NameIsDefined/name"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="glotlanguage2.ecore#//System">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute glotlanguage2.ecore#//System/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute glotlanguage2.ecore#//System/subversion"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference glotlanguage2.ecore#//System/entities"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference glotlanguage2.ecore#//System/forms"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference glotlanguage2.ecore#//System/pages"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute glotlanguage2.ecore#//System/fullVersion"/>
+      <genOperations ecoreOperation="glotlanguage2.ecore#//System/JoinVersion">
+        <genParameters ecoreParameter="glotlanguage2.ecore#//System/JoinVersion/version"/>
+        <genParameters ecoreParameter="glotlanguage2.ecore#//System/JoinVersion/subversion"/>
+      </genOperations>
+    </genClasses>
+    <nestedGenPackages prefix="ContentConcern" disposableProviderFactory="true" ecorePackage="glotlanguage2.ecore#//ContentConcern">
+      <genClasses image="false" ecoreClass="glotlanguage2.ecore#//ContentConcern/Content"/>
+      <genClasses image="false" ecoreClass="glotlanguage2.ecore#//ContentConcern/DynamicContent">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference glotlanguage2.ecore#//ContentConcern/DynamicContent/entity"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference glotlanguage2.ecore#//ContentConcern/DynamicContent/features"/>
+      </genClasses>
+      <genClasses ecoreClass="glotlanguage2.ecore#//ContentConcern/Individual">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference glotlanguage2.ecore#//ContentConcern/Individual/index"/>
+      </genClasses>
+      <genClasses ecoreClass="glotlanguage2.ecore#//ContentConcern/Index">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference glotlanguage2.ecore#//ContentConcern/Index/inds"/>
+      </genClasses>
+      <genClasses ecoreClass="glotlanguage2.ecore#//ContentConcern/Page">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference glotlanguage2.ecore#//ContentConcern/Page/indexes"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference glotlanguage2.ecore#//ContentConcern/Page/individuals"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference glotlanguage2.ecore#//ContentConcern/Page/forms"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference glotlanguage2.ecore#//ContentConcern/Page/links"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="DataConcern" disposableProviderFactory="true" ecorePackage="glotlanguage2.ecore#//DataConcern">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="glotlanguage2.ecore#//DataConcern/_DataType">
+        <genEnumLiterals ecoreEnumLiteral="glotlanguage2.ecore#//DataConcern/_DataType/String"/>
+        <genEnumLiterals ecoreEnumLiteral="glotlanguage2.ecore#//DataConcern/_DataType/int"/>
+        <genEnumLiterals ecoreEnumLiteral="glotlanguage2.ecore#//DataConcern/_DataType/text"/>
+        <genEnumLiterals ecoreEnumLiteral="glotlanguage2.ecore#//DataConcern/_DataType/boolean"/>
+        <genEnumLiterals ecoreEnumLiteral="glotlanguage2.ecore#//DataConcern/_DataType/Date"/>
+        <genEnumLiterals ecoreEnumLiteral="glotlanguage2.ecore#//DataConcern/_DataType/File"/>
+        <genEnumLiterals ecoreEnumLiteral="glotlanguage2.ecore#//DataConcern/_DataType/double"/>
+      </genEnums>
+      <genClasses ecoreClass="glotlanguage2.ecore#//DataConcern/Attribute">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute glotlanguage2.ecore#//DataConcern/Attribute/isPrimaryKey"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute glotlanguage2.ecore#//DataConcern/Attribute/type"/>
+      </genClasses>
+      <genClasses ecoreClass="glotlanguage2.ecore#//DataConcern/Entity">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference glotlanguage2.ecore#//DataConcern/Entity/features"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="glotlanguage2.ecore#//DataConcern/Feature"/>
+      <genClasses ecoreClass="glotlanguage2.ecore#//DataConcern/Reference">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference glotlanguage2.ecore#//DataConcern/Reference/foreignKey"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="FormConcern" disposableProviderFactory="true" ecorePackage="glotlanguage2.ecore#//FormConcern">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="glotlanguage2.ecore#//FormConcern/_MethodType">
+        <genEnumLiterals ecoreEnumLiteral="glotlanguage2.ecore#//FormConcern/_MethodType/POST"/>
+        <genEnumLiterals ecoreEnumLiteral="glotlanguage2.ecore#//FormConcern/_MethodType/GET"/>
+        <genEnumLiterals ecoreEnumLiteral="glotlanguage2.ecore#//FormConcern/_MethodType/PUT"/>
+        <genEnumLiterals ecoreEnumLiteral="glotlanguage2.ecore#//FormConcern/_MethodType/DELETE"/>
+        <genEnumLiterals ecoreEnumLiteral="glotlanguage2.ecore#//FormConcern/_MethodType/PATCH"/>
+      </genEnums>
+      <genClasses ecoreClass="glotlanguage2.ecore#//FormConcern/Element">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute glotlanguage2.ecore#//FormConcern/Element/label"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute glotlanguage2.ecore#//FormConcern/Element/tooltip"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference glotlanguage2.ecore#//FormConcern/Element/attribute"/>
+      </genClasses>
+      <genClasses ecoreClass="glotlanguage2.ecore#//FormConcern/Form">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute glotlanguage2.ecore#//FormConcern/Form/method"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference glotlanguage2.ecore#//FormConcern/Form/elements"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference glotlanguage2.ecore#//FormConcern/Form/entity"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute glotlanguage2.ecore#//FormConcern/Form/elementsNumber"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
 </genmodel:GenModel>

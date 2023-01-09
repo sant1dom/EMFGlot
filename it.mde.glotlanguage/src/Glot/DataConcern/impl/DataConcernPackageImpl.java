@@ -14,6 +14,7 @@ import Glot.DataConcern.Feature;
 import Glot.DataConcern.Reference;
 import Glot.DataConcern._DataType;
 
+import Glot.DataConcern.util.DataConcernValidator;
 import Glot.FormConcern.FormConcernPackage;
 
 import Glot.FormConcern.impl.FormConcernPackageImpl;
@@ -25,9 +26,12 @@ import Glot.impl.GlotPackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
@@ -138,6 +142,15 @@ public class DataConcernPackageImpl extends EPackageImpl implements DataConcernP
 		theContentConcernPackage.initializePackageContents();
 		theFormConcernPackage.initializePackageContents();
 
+		// Register package validator
+		EValidator.Registry.INSTANCE.put
+			(theDataConcernPackage,
+			 new EValidator.Descriptor() {
+				 public EValidator getEValidator() {
+					 return DataConcernValidator.INSTANCE;
+				 }
+			 });
+
 		// Mark meta-data to indicate it can't be changed
 		theDataConcernPackage.freeze();
 
@@ -196,8 +209,17 @@ public class DataConcernPackageImpl extends EPackageImpl implements DataConcernP
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getEntity_Test() {
-		return (EAttribute)entityEClass.getEStructuralFeatures().get(1);
+	public EOperation getEntity__NoDuplicates__DiagnosticChain_Map() {
+		return entityEClass.getEOperations().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EOperation getEntity__AtLeastOnePK__DiagnosticChain_Map() {
+		return entityEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -270,7 +292,8 @@ public class DataConcernPackageImpl extends EPackageImpl implements DataConcernP
 
 		entityEClass = createEClass(ENTITY);
 		createEReference(entityEClass, ENTITY__FEATURES);
-		createEAttribute(entityEClass, ENTITY__TEST);
+		createEOperation(entityEClass, ENTITY___NO_DUPLICATES__DIAGNOSTICCHAIN_MAP);
+		createEOperation(entityEClass, ENTITY___AT_LEAST_ONE_PK__DIAGNOSTICCHAIN_MAP);
 
 		featureEClass = createEClass(FEATURE);
 
@@ -324,7 +347,24 @@ public class DataConcernPackageImpl extends EPackageImpl implements DataConcernP
 
 		initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEntity_Features(), this.getFeature(), null, "features", null, 1, -1, Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEntity_Test(), ecorePackage.getEInt(), "test", null, 1, 1, Entity.class, !IS_TRANSIENT, IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, IS_DERIVED, IS_ORDERED);
+
+		EOperation op = initEOperation(getEntity__NoDuplicates__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "NoDuplicates", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EGenericType g1 = createEGenericType(ecorePackage.getEMap());
+		EGenericType g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = initEOperation(getEntity__AtLeastOnePK__DiagnosticChain_Map(), ecorePackage.getEBoolean(), "AtLeastOnePK", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(featureEClass, Feature.class, "Feature", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -348,6 +388,8 @@ public class DataConcernPackageImpl extends EPackageImpl implements DataConcernP
 		// Create annotations
 		// http://www.eclipse.org/emf/2002/Ecore
 		createEcoreAnnotations();
+		// http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot
+		createPivotAnnotations();
 	}
 
 	/**
@@ -362,6 +404,34 @@ public class DataConcernPackageImpl extends EPackageImpl implements DataConcernP
 		  (this,
 		   source,
 		   new String[] {
+		   });
+		addAnnotation
+		  (entityEClass,
+		   source,
+		   new String[] {
+			   "constraints", "AtLeastOnePK"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createPivotAnnotations() {
+		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot";
+		addAnnotation
+		  (getEntity__NoDuplicates__DiagnosticChain_Map(),
+		   source,
+		   new String[] {
+			   "body", "Entity.allInstances()->select(name=self.name)->size()=1"
+		   });
+		addAnnotation
+		  (getEntity__AtLeastOnePK__DiagnosticChain_Map(),
+		   source,
+		   new String[] {
+			   "body", "features->select(a | a.oclIsKindOf(Attribute) and a.oclAsType(Attribute).isPrimaryKey=true)->size() > 0"
 		   });
 	}
 

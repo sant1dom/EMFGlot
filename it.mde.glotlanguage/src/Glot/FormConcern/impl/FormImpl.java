@@ -7,15 +7,10 @@ import Glot.DataConcern.Entity;
 import Glot.FormConcern.Element;
 import Glot.FormConcern.Form;
 import Glot.FormConcern.FormConcernPackage;
-import Glot.FormConcern.FormConcernTables;
 import Glot.FormConcern._MethodType;
 
 import Glot.impl.NamedElementImpl;
-
-import java.math.BigInteger;
 import java.util.Collection;
-
-import java.util.List;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -28,13 +23,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-import org.eclipse.ocl.pivot.evaluation.Executor;
-import org.eclipse.ocl.pivot.ids.IdResolver;
-import org.eclipse.ocl.pivot.library.collection.CollectionSizeOperation;
-import org.eclipse.ocl.pivot.utilities.PivotUtil;
-import org.eclipse.ocl.pivot.utilities.ValueUtil;
-import org.eclipse.ocl.pivot.values.IntegerValue;
-import org.eclipse.ocl.pivot.values.OrderedSetValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -101,7 +89,17 @@ public class FormImpl extends NamedElementImpl implements Form {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final BigInteger ELEMENTS_NUMBER_EDEFAULT = null;
+	protected static final int ELEMENTS_NUMBER_EDEFAULT = 0;
+
+	/**
+	 * The cached value of the '{@link #getElementsNumber() <em>Elements Number</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getElementsNumber()
+	 * @generated
+	 * @ordered
+	 */
+	protected int elementsNumber = ELEMENTS_NUMBER_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -198,17 +196,8 @@ public class FormImpl extends NamedElementImpl implements Form {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BigInteger getElementsNumber() {
-		/**
-		 * self.elements->size()
-		 */
-		final /*@NonInvalid*/ Executor executor = PivotUtil.getExecutor(this);
-		final /*@NonInvalid*/ IdResolver idResolver = executor.getIdResolver();
-		final /*@NonInvalid*/ List<Element> elements = this.getElements();
-		final /*@NonInvalid*/ OrderedSetValue BOXED_elements = idResolver.createOrderedSetOfAll(FormConcernTables.ORD_CLSSid_Element, elements);
-		final /*@NonInvalid*/ IntegerValue size = CollectionSizeOperation.INSTANCE.evaluate(BOXED_elements);
-		final BigInteger ECORE_size = ValueUtil.bigIntegerValueOf(size);
-		return ECORE_size;
+	public int getElementsNumber() {
+		return elementsNumber;
 	}
 
 	/**
@@ -216,10 +205,11 @@ public class FormImpl extends NamedElementImpl implements Form {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setElementsNumber(BigInteger newElementsNumber) {
-		// TODO: implement this method to set the 'Elements Number' attribute
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
+	public void setElementsNumber(int newElementsNumber) {
+		int oldElementsNumber = elementsNumber;
+		elementsNumber = newElementsNumber;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, FormConcernPackage.FORM__ELEMENTS_NUMBER, oldElementsNumber, elementsNumber));
 	}
 
 	/**
@@ -277,7 +267,7 @@ public class FormImpl extends NamedElementImpl implements Form {
 				setEntity((Entity)newValue);
 				return;
 			case FormConcernPackage.FORM__ELEMENTS_NUMBER:
-				setElementsNumber((BigInteger)newValue);
+				setElementsNumber((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -322,7 +312,7 @@ public class FormImpl extends NamedElementImpl implements Form {
 			case FormConcernPackage.FORM__ENTITY:
 				return entity != null;
 			case FormConcernPackage.FORM__ELEMENTS_NUMBER:
-				return ELEMENTS_NUMBER_EDEFAULT == null ? getElementsNumber() != null : !ELEMENTS_NUMBER_EDEFAULT.equals(getElementsNumber());
+				return elementsNumber != ELEMENTS_NUMBER_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -339,6 +329,8 @@ public class FormImpl extends NamedElementImpl implements Form {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (method: ");
 		result.append(method);
+		result.append(", elementsNumber: ");
+		result.append(elementsNumber);
 		result.append(')');
 		return result.toString();
 	}

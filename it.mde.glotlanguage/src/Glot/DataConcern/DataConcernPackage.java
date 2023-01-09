@@ -7,6 +7,7 @@ import Glot.GlotPackage;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -89,6 +90,24 @@ public interface DataConcernPackage extends EPackage {
 	int FEATURE_FEATURE_COUNT = GlotPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The operation id for the '<em>Name Is Defined</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE___NAME_IS_DEFINED__STRING = GlotPackage.NAMED_ELEMENT___NAME_IS_DEFINED__STRING;
+
+	/**
+	 * The operation id for the '<em>Name Not Empty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP = GlotPackage.NAMED_ELEMENT___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP;
+
+	/**
 	 * The number of operations of the '<em>Feature</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -144,6 +163,24 @@ public interface DataConcernPackage extends EPackage {
 	int ATTRIBUTE_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 2;
 
 	/**
+	 * The operation id for the '<em>Name Is Defined</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE___NAME_IS_DEFINED__STRING = FEATURE___NAME_IS_DEFINED__STRING;
+
+	/**
+	 * The operation id for the '<em>Name Not Empty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP = FEATURE___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP;
+
+	/**
 	 * The number of operations of the '<em>Attribute</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -181,22 +218,49 @@ public interface DataConcernPackage extends EPackage {
 	int ENTITY__FEATURES = GlotPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Test</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTITY__TEST = GlotPackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Entity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY_FEATURE_COUNT = GlotPackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int ENTITY_FEATURE_COUNT = GlotPackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Name Is Defined</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY___NAME_IS_DEFINED__STRING = GlotPackage.NAMED_ELEMENT___NAME_IS_DEFINED__STRING;
+
+	/**
+	 * The operation id for the '<em>Name Not Empty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP = GlotPackage.NAMED_ELEMENT___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP;
+
+	/**
+	 * The operation id for the '<em>No Duplicates</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY___NO_DUPLICATES__DIAGNOSTICCHAIN_MAP = GlotPackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
+
+	/**
+	 * The operation id for the '<em>At Least One PK</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY___AT_LEAST_ONE_PK__DIAGNOSTICCHAIN_MAP = GlotPackage.NAMED_ELEMENT_OPERATION_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Entity</em>' class.
@@ -205,7 +269,7 @@ public interface DataConcernPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENTITY_OPERATION_COUNT = GlotPackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int ENTITY_OPERATION_COUNT = GlotPackage.NAMED_ELEMENT_OPERATION_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link Glot.DataConcern.impl.ReferenceImpl <em>Reference</em>}' class.
@@ -243,6 +307,24 @@ public interface DataConcernPackage extends EPackage {
 	 * @ordered
 	 */
 	int REFERENCE_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Name Is Defined</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE___NAME_IS_DEFINED__STRING = FEATURE___NAME_IS_DEFINED__STRING;
+
+	/**
+	 * The operation id for the '<em>Name Not Empty</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP = FEATURE___NAME_NOT_EMPTY__DIAGNOSTICCHAIN_MAP;
 
 	/**
 	 * The number of operations of the '<em>Reference</em>' class.
@@ -318,15 +400,24 @@ public interface DataConcernPackage extends EPackage {
 	EReference getEntity_Features();
 
 	/**
-	 * Returns the meta object for the attribute '{@link Glot.DataConcern.Entity#getTest <em>Test</em>}'.
+	 * Returns the meta object for the '{@link Glot.DataConcern.Entity#NoDuplicates(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>No Duplicates</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Test</em>'.
-	 * @see Glot.DataConcern.Entity#getTest()
-	 * @see #getEntity()
+	 * @return the meta object for the '<em>No Duplicates</em>' operation.
+	 * @see Glot.DataConcern.Entity#NoDuplicates(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
 	 * @generated
 	 */
-	EAttribute getEntity_Test();
+	EOperation getEntity__NoDuplicates__DiagnosticChain_Map();
+
+	/**
+	 * Returns the meta object for the '{@link Glot.DataConcern.Entity#AtLeastOnePK(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>At Least One PK</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the '<em>At Least One PK</em>' operation.
+	 * @see Glot.DataConcern.Entity#AtLeastOnePK(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 */
+	EOperation getEntity__AtLeastOnePK__DiagnosticChain_Map();
 
 	/**
 	 * Returns the meta object for class '{@link Glot.DataConcern.Feature <em>Feature</em>}'.
@@ -437,12 +528,20 @@ public interface DataConcernPackage extends EPackage {
 		EReference ENTITY__FEATURES = eINSTANCE.getEntity_Features();
 
 		/**
-		 * The meta object literal for the '<em><b>Test</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>No Duplicates</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ENTITY__TEST = eINSTANCE.getEntity_Test();
+		EOperation ENTITY___NO_DUPLICATES__DIAGNOSTICCHAIN_MAP = eINSTANCE.getEntity__NoDuplicates__DiagnosticChain_Map();
+
+		/**
+		 * The meta object literal for the '<em><b>At Least One PK</b></em>' operation.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EOperation ENTITY___AT_LEAST_ONE_PK__DIAGNOSTICCHAIN_MAP = eINSTANCE.getEntity__AtLeastOnePK__DiagnosticChain_Map();
 
 		/**
 		 * The meta object literal for the '{@link Glot.DataConcern.impl.FeatureImpl <em>Feature</em>}' class.
