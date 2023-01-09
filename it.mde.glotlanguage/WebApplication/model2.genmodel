@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/it.mde.glotlanguage/src" modelPluginID="it.mde.glotlanguage"
+    modelName="Model2" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>model2.ecore</foreignModel>
+  <genPackages prefix="Glot2" disposableProviderFactory="true" ecorePackage="model2.ecore#/">
+    <genClasses ecoreClass="model2.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model2.ecore#//NamedElement/name"/>
+      <genOperations ecoreOperation="model2.ecore#//NamedElement/NameIsDefined">
+        <genParameters ecoreParameter="model2.ecore#//NamedElement/NameIsDefined/name"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="model2.ecore#//System">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model2.ecore#//System/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model2.ecore#//System/subversion"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model2.ecore#//System/entities"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model2.ecore#//System/forms"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model2.ecore#//System/pages"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model2.ecore#//System/fullVersion"/>
+      <genOperations ecoreOperation="model2.ecore#//System/JoinVersion">
+        <genParameters ecoreParameter="model2.ecore#//System/JoinVersion/version"/>
+        <genParameters ecoreParameter="model2.ecore#//System/JoinVersion/subversion"/>
+      </genOperations>
+    </genClasses>
+    <nestedGenPackages prefix="ContentConcern" disposableProviderFactory="true" ecorePackage="model2.ecore#//ContentConcern">
+      <genClasses image="false" ecoreClass="model2.ecore#//ContentConcern/Content"/>
+      <genClasses image="false" ecoreClass="model2.ecore#//ContentConcern/DynamicContent">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model2.ecore#//ContentConcern/DynamicContent/entity"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model2.ecore#//ContentConcern/DynamicContent/features"/>
+      </genClasses>
+      <genClasses ecoreClass="model2.ecore#//ContentConcern/Individual">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model2.ecore#//ContentConcern/Individual/index"/>
+      </genClasses>
+      <genClasses ecoreClass="model2.ecore#//ContentConcern/Index">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model2.ecore#//ContentConcern/Index/individuals"/>
+      </genClasses>
+      <genClasses ecoreClass="model2.ecore#//ContentConcern/Page">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model2.ecore#//ContentConcern/Page/indexes"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model2.ecore#//ContentConcern/Page/individuals"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model2.ecore#//ContentConcern/Page/forms"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model2.ecore#//ContentConcern/Page/links"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="DataConcern" disposableProviderFactory="true" ecorePackage="model2.ecore#//DataConcern">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="model2.ecore#//DataConcern/_DataType">
+        <genEnumLiterals ecoreEnumLiteral="model2.ecore#//DataConcern/_DataType/String"/>
+        <genEnumLiterals ecoreEnumLiteral="model2.ecore#//DataConcern/_DataType/int"/>
+        <genEnumLiterals ecoreEnumLiteral="model2.ecore#//DataConcern/_DataType/text"/>
+        <genEnumLiterals ecoreEnumLiteral="model2.ecore#//DataConcern/_DataType/boolean"/>
+        <genEnumLiterals ecoreEnumLiteral="model2.ecore#//DataConcern/_DataType/Date"/>
+        <genEnumLiterals ecoreEnumLiteral="model2.ecore#//DataConcern/_DataType/File"/>
+        <genEnumLiterals ecoreEnumLiteral="model2.ecore#//DataConcern/_DataType/double"/>
+      </genEnums>
+      <genClasses ecoreClass="model2.ecore#//DataConcern/Attribute">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model2.ecore#//DataConcern/Attribute/isPrimaryKey"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model2.ecore#//DataConcern/Attribute/type"/>
+      </genClasses>
+      <genClasses ecoreClass="model2.ecore#//DataConcern/Entity">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model2.ecore#//DataConcern/Entity/features"/>
+      </genClasses>
+      <genClasses image="false" ecoreClass="model2.ecore#//DataConcern/Feature"/>
+      <genClasses ecoreClass="model2.ecore#//DataConcern/Reference">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model2.ecore#//DataConcern/Reference/foreignKey"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages prefix="FormConcern" disposableProviderFactory="true" ecorePackage="model2.ecore#//FormConcern">
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="model2.ecore#//FormConcern/_MethodType">
+        <genEnumLiterals ecoreEnumLiteral="model2.ecore#//FormConcern/_MethodType/POST"/>
+        <genEnumLiterals ecoreEnumLiteral="model2.ecore#//FormConcern/_MethodType/GET"/>
+        <genEnumLiterals ecoreEnumLiteral="model2.ecore#//FormConcern/_MethodType/PUT"/>
+        <genEnumLiterals ecoreEnumLiteral="model2.ecore#//FormConcern/_MethodType/DELETE"/>
+        <genEnumLiterals ecoreEnumLiteral="model2.ecore#//FormConcern/_MethodType/PATCH"/>
+      </genEnums>
+      <genClasses ecoreClass="model2.ecore#//FormConcern/Element">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model2.ecore#//FormConcern/Element/label"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model2.ecore#//FormConcern/Element/tooltip"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model2.ecore#//FormConcern/Element/attribute"/>
+      </genClasses>
+      <genClasses ecoreClass="model2.ecore#//FormConcern/Form">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model2.ecore#//FormConcern/Form/method"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference model2.ecore#//FormConcern/Form/elements"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference model2.ecore#//FormConcern/Form/entity"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute model2.ecore#//FormConcern/Form/elementsNumber"/>
+      </genClasses>
+    </nestedGenPackages>
+  </genPackages>
+</genmodel:GenModel>
