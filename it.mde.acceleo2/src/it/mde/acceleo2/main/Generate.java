@@ -390,7 +390,6 @@ public class Generate extends AbstractAcceleoGenerator {
     public void registerResourceFactories(ResourceSet resourceSet) {
     	EPackage.Registry.INSTANCE.put(GlotPackage.eNS_URI , GlotPackage.eINSTANCE);
     	Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("*", new XMIResourceFactoryImpl());
-    
     }
     
 }

@@ -10,8 +10,6 @@
 [generateTable(entity)/]
 [generateSelect(entity)/]
 [generateSelectisPK(entity)/]
-
-
 	[/for]
 [/file]
 
