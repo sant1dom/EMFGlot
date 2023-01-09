@@ -1,0 +1,10 @@
+[comment encoding = UTF-8 /]
+[module generate('https://it.mde.glotlanguage2')]
+
+
+[template public generateElement(aSystem : System)]
+[comment @main/]
+[file (aSystem.name, false, 'UTF-8')]
+
+[/file]
+[/template]

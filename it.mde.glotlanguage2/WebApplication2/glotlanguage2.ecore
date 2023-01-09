@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Glot2" nsURI="https://it.mde.glotlanguage2" nsPrefix="web">
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="NameNotEmpty"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="NameNotEmpty" value="Tuple {&#xA;&#x9;message : String = 'Expected a name',&#xA;&#x9;status : Boolean = not NameIsDefined(self.name)&#xA;}.status"/>
+    </eAnnotations>
+    <eOperations name="NameIsDefined" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="body" value="name.oclIsUndefined() or name = ''"/>
+      </eAnnotations>
+      <eParameters name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="System" eSuperTypes="#//NamedElement">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="SubVersionBetweenZeroAndNine"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="SubVersionBetweenZeroAndNine" value="Tuple {&#xA;&#x9;message : String = 'Subversion should be between zero and nine',&#xA;&#x9;status : Boolean = self.subversion &lt; 10 and self.subversion >= 0&#xA;}.status"/>
+    </eAnnotations>
+    <eOperations name="JoinVersion" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="body" value="(version.toString().concat('.')).concat(subversion.toString())"/>
+      </eAnnotations>
+      <eParameters name="version" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eParameters name="subversion" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="subversion" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="entities" upperBound="-1"
+        eType="#//DataConcern/Entity" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="forms" upperBound="-1"
+        eType="#//FormConcern/Form" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pages" upperBound="-1"
+        eType="#//ContentConcern/Page" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="fullVersion" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" derived="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="derivation" value="JoinVersion(self.version, self.subversion)"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eSubpackages name="ContentConcern" nsURI="https://it.mde.glotlanguage2/contenConcern"
+      nsPrefix="cc">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+      <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+      <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    </eAnnotations>
+    <eClassifiers xsi:type="ecore:EClass" name="Content" abstract="true" eSuperTypes="#//NamedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DynamicContent" abstract="true" eSuperTypes="#//ContentConcern/Content">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="OnlyFeaturesFromRef"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="OnlyFeaturesFromRef" value="entity.features->includesAll(features)"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="entity" lowerBound="1"
+          eType="#//DataConcern/Entity"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="features" lowerBound="1"
+          upperBound="-1" eType="#//DataConcern/Feature"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Individual" eSuperTypes="#//ContentConcern/DynamicContent">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="SameEntityAsParent"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="SameEntityAsParent" value="Index.allInstances()->select(a | a.individuals->includes(self))->asSequence()->first().entity = self.entity"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="index" lowerBound="1"
+          eType="#//ContentConcern/Index" derived="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="derivation" value="Index.allInstances()->select(a | a.individuals->includes(self))->asSequence()->first()"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Index" eSuperTypes="#//ContentConcern/DynamicContent">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="NoDuplicates"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="NoDuplicates" value="Index.allInstances()->select(name=self.name)->size()=1"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="individuals" lowerBound="1"
+          upperBound="-1" eType="#//ContentConcern/Individual"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Page" eSuperTypes="#//NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="indexes" upperBound="-1"
+          eType="#//ContentConcern/Index" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="individuals" upperBound="-1"
+          eType="#//ContentConcern/Individual" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="forms" upperBound="-1"
+          eType="#//FormConcern/Form"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
+          eType="#//ContentConcern/Page"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="DataConcern" nsURI="https://it.mde.glotlanguage2/dataConcern"
+      nsPrefix="dc">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+      <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+      <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    </eAnnotations>
+    <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//DataConcern/Feature">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isPrimaryKey" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//DataConcern/_DataType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Entity" eSuperTypes="#//NamedElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="AtLeastOnePK NoDuplicates"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+        <details key="AtLeastOnePK" value="features->select(a | a.oclIsKindOf(Attribute) and a.oclAsType(Attribute).isPrimaryKey=true)->size() > 0"/>
+        <details key="NoDuplicates" value="Entity.allInstances()->select(name=self.name)->size()=1"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="features" lowerBound="1"
+          upperBound="-1" eType="#//DataConcern/Feature" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Feature" abstract="true" eSuperTypes="#//NamedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Reference" eSuperTypes="#//DataConcern/Feature">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="foreignKey" eType="#//DataConcern/Entity"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="_DataType">
+      <eLiterals name="String"/>
+      <eLiterals name="int"/>
+      <eLiterals name="text"/>
+      <eLiterals name="boolean"/>
+      <eLiterals name="Date"/>
+      <eLiterals name="File"/>
+      <eLiterals name="double"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="FormConcern" nsURI="https://it.mde.glotlanguage2/formConcern"
+      nsPrefix="fc">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+      <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+      <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    </eAnnotations>
+    <eClassifiers xsi:type="ecore:EClass" name="Element" eSuperTypes="#//NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="tooltip" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="attribute" eType="#//DataConcern/Attribute"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Form" eSuperTypes="#//NamedElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="method" eType="#//FormConcern/_MethodType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+          eType="#//FormConcern/Element" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="entity" eType="#//DataConcern/Entity"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="elementsNumber" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" derived="true">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+          <details key="derivation" value="self.elements->size()"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="_MethodType">
+      <eLiterals name="POST"/>
+      <eLiterals name="GET"/>
+      <eLiterals name="PUT"/>
+      <eLiterals name="DELETE"/>
+      <eLiterals name="PATCH"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

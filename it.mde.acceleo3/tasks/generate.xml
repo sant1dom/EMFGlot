@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project default="generate" name="it.mde.acceleo2">
+<project default="generate" name="it.mde.acceleo3">
     <property name="ECLIPSE_HOME" value="../../../../../eclipse/modeling-2022-09/eclipse"/>
     <property name="ECLIPSE_WORKSPACE" value="../../../../../eclipse-workspace"/>
 
     <!-- The classpath with only the dependencies used by the project -->
-    <path id="it.mde.acceleo2.libraryclasspath">
-        <pathelement location="${ECLIPSE_WORKSPACE}/it.mde.acceleo2/bin"/>
+    <path id="it.mde.acceleo3.libraryclasspath">
+        <pathelement location="${ECLIPSE_WORKSPACE}/it.mde.acceleo3/bin"/>
     </path>
 
-    <path id="it.mde.acceleo2.classpath">
-        <path refid="it.mde.acceleo2.libraryclasspath"/>
+    <path id="it.mde.acceleo3.classpath">
+        <path refid="it.mde.acceleo3.libraryclasspath"/>
     </path>
 
     <!-- The classpath with only the jars available in the plugin folder of Eclipse -->
-    <path id="it.mde.acceleo2.libraryclasspath.alljars">
-        <pathelement location="../it.mde.acceleo2/bin"/>
+    <path id="it.mde.acceleo3.libraryclasspath.alljars">
+        <pathelement location="../it.mde.acceleo3/bin"/>
         <fileset dir="${ECLIPSE_HOME}/plugins/" includes="*.jar"/>
     </path>
 
-    <path id="it.mde.acceleo2.classpath.alljars">
-        <path refid="it.mde.acceleo2.libraryclasspath.alljars"/>
+    <path id="it.mde.acceleo3.classpath.alljars">
+        <path refid="it.mde.acceleo3.libraryclasspath.alljars"/>
     </path>
 
     <!-- The default task with the jars used by this project -->
     <target name="generate">
-        <java classname="it.mde.acceleo2.main.Generate" classpathref="it.mde.acceleo2.classpath">
+        <java classname="it.mde.acceleo3.main.Generate" classpathref="it.mde.acceleo3.classpath">
             <arg value="${model}"/>
             <arg value="${target}"/>
         </java>
@@ -35,7 +35,7 @@
         Keep in mind that having two versions of the same jar can create problems
     -->
     <target name="generate.alljars">
-        <java classname="it.mde.acceleo2.main.Generate" classpathref="it.mde.acceleo2.classpath">
+        <java classname="it.mde.acceleo3.main.Generate" classpathref="it.mde.acceleo3.classpath">
             <arg value="${model}"/>
             <arg value="${target}"/>
         </java>
