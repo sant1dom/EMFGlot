@@ -80,7 +80,8 @@
         foreignKey="//@entities.0"/>
     <features
         xsi:type="dc:Reference"
-        name="product"/>
+        name="product"
+        foreignKey="//@entities.1"/>
   </entities>
   <entities
       name="Brand">
