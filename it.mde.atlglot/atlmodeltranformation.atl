@@ -1,8 +1,9 @@
--- @path Glot=/it.mde.glotlanguage/EMFGlot/WebApplication/model.ecore
--- @path NewGlot=/it.mde.glotlanguage/EMFGlot/WebApplication/model2.ecore
+-- @path Glot=/it.mde.glotlanguage/WebApplication/model.ecore
+-- @path NewGlot=/it.mde.glotlanguage2/WebApplication2/glotlanguage2.ecore
 
 module atlmodeltranformation;
 create OUT : NewGlot from IN : Glot;
+
 rule Individuals {
 	from
 		s : Glot!Individual
@@ -47,30 +48,34 @@ rule Elements {
 			tooltip <- s.tooltip
 		)
 }
+
 rule Forms {
 	from
 		s : Glot!Form
 	to 
 		t : NewGlot!Form (
 			elements <- s.elements,
-			name <- s.name,
 			entity <- s.entity,
-			method <- s.method
+			method <- s.method,
+			name <- s.name
 		)
 }
 
+
 rule Pages {
-	from
-		s : Glot!Page
-	to 
-		t : NewGlot!Page (
-			name <- s.name,
-			links <- s.links,
-			forms <- s.forms,
-			indexes <- s.indexes,
-			individuals <- s.indexes->collect(e | e.individuals)
-		)
+    from
+        s : Glot!Page
+    to 
+        t : NewGlot!Page (
+            name <- s.name,
+            links <- s.links,
+            forms <- s.forms->collect(e | e.form),
+            indexes <- s.indexes,
+            individuals <- s.indexes->collect(e | e.individuals)
+        )
 }
+
+
 
 rule Attributes {
 	from

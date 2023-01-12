@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dc="https://it.mde.glotlanguage2/dataConcern" xmlns:web="https://it.mde.glotlanguage2" name="Blog" version="4" subversion="9">
+  <entities name="User">
+    <features xsi:type="dc:Attribute" name="id" isPrimaryKey="true"/>
+    <features xsi:type="dc:Attribute" name="name"/>
+    <features xsi:type="dc:Attribute" name="email"/>
+    <features xsi:type="dc:Attribute" name="username"/>
+    <features xsi:type="dc:Attribute" name="password"/>
+  </entities>
+  <entities name="Post">
+    <features xsi:type="dc:Attribute" name="id" isPrimaryKey="true"/>
+    <features xsi:type="dc:Attribute" name="title"/>
+    <features xsi:type="dc:Attribute" name="content"/>
+    <features xsi:type="dc:Attribute" name="summary"/>
+    <features xsi:type="dc:Reference" name="tag" foreignKey="//@entities.2"/>
+    <features xsi:type="dc:Reference" name="category" foreignKey="//@entities.3"/>
+  </entities>
+  <entities name="Tag">
+    <features xsi:type="dc:Attribute" name="id" isPrimaryKey="true"/>
+    <features xsi:type="dc:Attribute" name="tag_name"/>
+  </entities>
+  <entities name="Category">
+    <features xsi:type="dc:Attribute" name="id" isPrimaryKey="true"/>
+    <features xsi:type="dc:Attribute" name="cat_name"/>
+  </entities>
+  <entities name="Comment">
+    <features xsi:type="dc:Attribute" name="id" isPrimaryKey="true"/>
+    <features xsi:type="dc:Attribute" name="comment_content"/>
+    <features xsi:type="dc:Reference" name="post" foreignKey="//@entities.1"/>
+  </entities>
+  <forms name="Login" entity="//@entities.0">
+    <elements name="Username" label="Username" tooltip="Insert username" attribute="//@entities.0/@features.3"/>
+    <elements name="Password" label="Password" tooltip="Insert password" attribute="//@entities.0/@features.4"/>
+    <elements name="Login Button" label="Login" tooltip="Login"/>
+  </forms>
+  <forms name="NewPost"/>
+  <pages name="Posts" forms="//@forms.0 //@forms.1"/>
+</web:System>
